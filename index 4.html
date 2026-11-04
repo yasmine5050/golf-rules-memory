@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="theme-color" content="#0c342b"/>
+<title>高尔夫规则编号记忆助手 · 试玩版</title>
+<style>
+:root{--bg:#eff4ef;--green:#123f32;--green2:#1c5947;--mint:#dcece3;--gold:#e6b968;--text:#182a22;--muted:#5c7167;--red:#a04136}*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;color:var(--text);background:var(--bg)}button,input{font:inherit}button{cursor:pointer}.wrap{max-width:640px;margin:auto;padding:18px 16px 42px}.hero{background:linear-gradient(130deg,#123e30,#23644c);color:white;border-radius:24px;padding:24px 23px 26px;box-shadow:0 12px 30px #10392319}.eyebrow{font-size:12px;letter-spacing:2px;color:#bce2cd;font-weight:700}.hero h1{margin:14px 0 9px;font-size:28px;line-height:1.3}.hero p{color:#d6e8dd;font-size:14px;line-height:1.7;margin:0}.little{display:inline-flex;border-radius:40px;border:1px solid #ffffff45;padding:6px 10px;font-size:11px;margin-top:18px}.sectiontitle{font-size:15px;font-weight:750;margin:26px 0 12px}.modes{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.mode{border:1px solid #c7d7cb;background:white;border-radius:15px;text-align:left;padding:14px 10px;min-height:94px}.mode.active{background:var(--green);color:white;border-color:var(--green)}.mode strong{font-size:16px;display:block}.mode small{display:block;font-size:11px;line-height:1.5;margin-top:7px;color:inherit;opacity:.78}.panel{background:#fff;border:1px solid #e3e9e2;border-radius:22px;padding:22px 20px;margin-top:17px;box-shadow:0 6px 24px #204a2910}.paneltop{display:flex;justify-content:space-between;align-items:center;gap:10px}.tag{display:inline-block;background:#e9f3e9;color:#2c634e;border-radius:30px;padding:6px 10px;font-size:12px;font-weight:700}.counter{font-size:12px;color:var(--muted)}.prompt{font-size:22px;font-weight:750;line-height:1.58;margin:23px 0 20px;min-height:112px}.sub{font-size:13px;color:var(--muted);margin:0 0 12px}.choices{display:grid;gap:10px}.choice{width:100%;background:#f7faf7;border:1.5px solid #d9e4dc;border-radius:14px;padding:14px;text-align:left;color:var(--green);font-size:18px;font-weight:700}.choice:active{transform:scale(.995)}.choice:disabled{cursor:default;opacity:1}.choice.correct{background:#dcf2e6;border-color:#2b8c65}.choice.wrong{background:#fff0ee;border-color:#c3675a}.input{border-radius:13px;border:1.5px solid #bacfc2;width:100%;font-size:20px;padding:14px 15px;outline-color:#246647}.btn{background:var(--green);color:white;border:0;border-radius:13px;padding:14px 17px;font-weight:700;display:block;width:100%;margin-top:12px}.btn.secondary{background:#e5eee7;color:#184331}.btn:disabled{opacity:.48;cursor:default}.feedback{border-radius:14px;padding:15px;margin-top:17px;line-height:1.7;background:#eef6ef}.feedback.bad{background:#fff3ed}.feedback h3{font-size:16px;margin:0 0 5px}.feedback p{font-size:13px;margin:4px 0}.feedback a{color:#205b45;font-size:13px}.progress{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:21px 4px 0;color:#4b6256;font-size:13px}.bar{height:8px;border-radius:10px;background:#dce8dd;margin:9px 4px 0;overflow:hidden}.bar>div{height:100%;background:#2f7b5a;width:0%;transition:width .3s}.footer{font-size:12px;color:#66776b;line-height:1.7;margin:20px 5px 0}.footer a{color:#20563d}.reset{border:0;color:#35614e;background:none;padding:8px;font-size:12px}.hide{display:none!important}@media(max-width:380px){.hero h1{font-size:25px}.prompt{font-size:19px}.mode{padding:12px 8px}}
+body{background:#f3f0e5}.hero{position:relative;isolation:isolate;overflow:hidden;border-radius:18px 18px 4px 4px;background:#153d31;border-bottom:4px solid #bea565}.hero .course{position:absolute;right:-2%;bottom:0;width:55%;height:100%;z-index:-1}.hero p{max-width:60%}.hero h1{font-family:Georgia,"Songti SC",serif}.panel{border-radius:8px;border-top:4px solid #42684c}.mode{border-radius:8px}.counter{font-variant-numeric:tabular-nums}.input[aria-invalid=true]{border:2px solid #ae342c;outline-color:#ae342c;background:#fff8f5}.validation{background:#fff0e9;color:#922d23;border-left:3px solid #ae342c;padding:10px 12px;margin:8px 0 0;border-radius:4px;font-size:14px;animation:rise .22s ease-out}@keyframes rise{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){.validation{animation:none}}#checkBtn{position:relative;overflow:hidden;isolation:isolate;touch-action:manipulation}.wave{position:absolute;pointer-events:none;border-radius:50%;background:rgba(255,255,255,.32);transform:translate(-50%,-50%);animation:ripple .55s ease-out forwards}@keyframes ripple{from{transform:translate(-50%,-50%) scale(.03);opacity:1}to{transform:translate(-50%,-50%) scale(1);opacity:0}}.choice[aria-pressed=true]:enabled{border-color:#246647;background:#deecdf;box-shadow:inset 3px 0 #246647}@media(prefers-reduced-motion:reduce){.wave{display:none}}[hidden]{display:none!important}button{position:relative;overflow:hidden;touch-action:manipulation}textarea{resize:vertical;line-height:1.6}#writeArea label{display:block;margin:16px 0 8px;font-weight:700}#checkItems label{display:flex;gap:10px;padding:12px 0;line-height:1.6}#checkItems input{flex-shrink:0;width:22px;height:22px}#selfMessage{font-size:13px;color:var(--muted);line-height:1.7}details{border-bottom:1px solid #cddacf;padding:20px 0;line-height:1.7}summary{cursor:pointer;font-weight:650}details p{white-space:pre-wrap}select{max-width:100%;font:inherit;padding:9px;border:1px solid #bacfc2;border-radius:8px;background:white}#feedback ol{padding-left:24px}#actionInput[aria-invalid=true]{border-color:#ae342c}button:focus-visible{outline:3px solid #b88a34;outline-offset:2px}</style>
+</head>
+<body><main class="wrap">
+<header class="hero"><svg class="course" viewBox="0 0 240 200" preserveAspectRatio="xMaxYMax slice" aria-hidden="true"><rect width="240" height="200" fill="#153d31"/><path d="M5 200Q40 160 104 145T157 91Q152 66 205 49T250 13V200" fill="#284e39"/><path d="M38 200Q62 161 122 150T168 108Q144 80 207 65T250 35V200" fill="#406747"/><path d="M75 200Q89 176 143 159T188 113Q163 87 209 79T250 51V200" fill="#527a51"/><ellipse cx="183" cy="121" rx="39" ry="12" fill="#8da26b"/><path d="M183 121V65" stroke="#f6edd3" stroke-width="2"/><path d="M184 65l22 6-22 7" fill="#e9bd72"/><path d="M217 139q-8-7-18-3t-4 9q7 3 17-1t5-5" fill="#d2c095"/></svg><div class="eyebrow">GOLF RULES &nbsp; / &nbsp; PRACTICE GREEN</div><h1>高尔夫规则<br>编号记忆助手</h1><p>从球场情境出发，把规则内容与规则编号真正联系起来。</p><div class="little">交互试玩版 V0.6 · 113 道编号题 · 10 道案例挑战</div></header>
+<div class="sectiontitle">选择练习模式</div>
+<div class="modes" role="group" aria-label="练习难度"><button class="mode active" data-level="1"><strong>入门</strong><small>三选一<br>认识规则号</small></button><button class="mode" data-level="2"><strong>挑战</strong><small>分析处理<br>填写规则依据</small></button></div>
+<button class="btn secondary" id="openMistakes">错题合集（待复习 <span id="mistakeCount">0</span>）</button><div id="practice"><label style="display:block;margin-top:16px">练习范围 <select id="chapter"><option value="0">综合练习 · 每轮 6 题</option><option value="1">规则 1</option><option value="2">规则 2</option><option value="3">规则 3</option><option value="4">规则 4</option><option value="5">规则 5</option><option value="6">规则 6</option><option value="7">规则 7</option><option value="8">规则 8</option><option value="9">规则 9</option><option value="10">规则 10</option><option value="11">规则 11</option><option value="12">规则 12</option><option value="13">规则 13</option><option value="14">规则 14</option><option value="15">规则 15</option><option value="16">规则 16</option><option value="17">规则 17</option><option value="18">规则 18</option><option value="19">规则 19</option><option value="20">规则 20</option><option value="21">规则 21</option><option value="22">规则 22</option><option value="23">规则 23</option><option value="24">规则 24</option><option value="25">规则 25</option></select></label><section class="panel" aria-live="polite"><div class="paneltop"><span class="tag" id="leveltag">入门练习</span><span class="counter" id="questionNum">第 1 / 6 题</span></div><div class="prompt" id="prompt"></div><div class="sub" id="sub">请选择与情境最直接对应的规则编号。</div><div id="options" class="choices"></div><div id="writeArea" class="hide"><label for="actionInput">你会怎样处理？</label><textarea id="actionInput" class="input" rows="4" maxlength="3000" placeholder="写明是否罚杆、球如何处理，以及需要完成的步骤。"></textarea><label for="answerInput">主要规则依据</label><input id="answerInput" class="input" inputmode="text" autocomplete="off" spellcheck="false" placeholder="填写规则编号" aria-label="输入规则编号" aria-describedby="validation"/><p id="validation" class="validation" role="status" hidden></p></div><button class="btn" id="checkBtn">确认答案</button><div id="feedback" class="feedback hide"></div><section id="selfCheck" hidden><h3>核对你原来的处理过程</h3><div id="checkItems"></div><p id="selfMessage"></p><button class="btn" id="allCorrect">处理要点全部覆盖</button><button class="btn secondary" id="hasMistake">有遗漏，加入错题</button></section><button id="nextBtn" class="btn hide">下一道题 →</button></section>
+<div class="progress"><span id="scoreLabel">本轮正确：0 题</span><span id="progressLabel">已完成 0 / 6</span></div><div class="bar"><div id="progressFill"></div></div><div style="text-align:right"><button class="reset" id="resetBtn">↻ 重新开始本轮练习</button></div>
+</div><section id="mistakesPanel" class="panel" hidden><h2>错题合集</h2><p>展开后可以看到你的原答案、正确处理及规则适用原因。重练答对后保留在已掌握记录中。</p><label><input id="showMastered" type="checkbox"> 同时显示已掌握</label><div id="mistakeList"></div><button class="btn" id="backPractice">返回练习</button></section><p id="saveNotice" class="footer" role="status">错题保存在当前浏览器。换设备或清除网站数据后不会同步保留。</p><p class="footer">本网页是学习原型，不是官方裁判考试题库。题目为简化情境，遇到复杂情形应查阅完整规则、定义及委员会程序。依据：<a href="https://www.randa.org/rog/the-rules-of-golf" target="_blank" rel="noopener">The R&amp;A 高尔夫规则</a>。每章含全部数字一级小节的定位题；部分题目另练更细编号。题解是中文学习摘要，另见各题 R&A 正文及其中例外。当前不需要注册账号，也不会上传答题数据。</p>
+</main>
+<script>
+const examples=[
+{q:'球员的球已经出界（OB），需要按杆数与距离补救。你会查哪条规则？',a:'18.2',choices:['17.1','18.2','19.2'],ex:'18.2 处理遗失球或界外球；通常须加一杆罚杆，并从上一杆位置重新打球。',url:'https://www.randa.org/rog/the-rules-of-golf/rule-18'},
+{q:'球停在红色罚杆区内，球员决定加一杆罚杆，采取侧面补救。主要对应哪一条？',a:'17.1d(3)',choices:['17.1d(3)','16.1b','19.2c'],ex:'17.1d(3) 规定红色罚杆区的侧面补救选项；不是所有罚杆区都允许侧面补救。',url:'https://www.randa.org/rog/the-rules-of-golf/rule-17'},
+{q:'球员认为普通区灌木丛中的球不可打，要选择一种不可打之球补救方式。主要依据哪条？',a:'19.2',choices:['19.2','18.3','15.2'],ex:'19.2 规定普通区或果岭上不可打之球的三种补救选项，通常各加一杆罚杆。',url:'https://www.randa.org/rog/the-rules-of-golf/rule-19'},
+{q:'球员按照补救程序抛球，必须由球员本人从膝盖高度垂直抛下。正确抛球程序对应哪条？',a:'14.3b',choices:['14.3b','14.1a','13.1b'],ex:'14.3b 说明谁来抛球、从膝盖高度垂直抛球，以及有关补救区的要求。',url:'https://www.randa.org/rog/the-rules-of-golf/rule-14'},
+{q:'球员的球在沙坑内被判为不可打，想加两杆罚杆到沙坑外采取后方线上补救。应查哪条？',a:'19.3b',choices:['19.3b','19.2c','17.2a'],ex:'19.3b 提供在沙坑外按后方线上补救的额外选择，须加两杆罚杆。',url:'https://www.randa.org/rog/the-rules-of-golf/rule-19'},
+{q:'在果岭上球员想先拿起球，再放回原来的位置。拿球前应先标示球位。这个要求在哪条？',a:'14.1a',choices:['13.2a','14.1a','14.3b'],ex:'14.1a 规定当球被拿起、随后须放回原位时，应先标示球的位置。',url:'https://www.randa.org/rog/the-rules-of-golf/rule-14'}
+];
+const bank=[{"q":"打完开球后，通常该怎样完成一洞？ 应查哪一节（填到小数一级）？","a":"1.1","ex":"从发球区开始，用一杆或多杆打球直至进洞，规则另有规定时按规定处理。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-1","choices":["1.1","1.2","1.3"]},{"q":"球员故意损坏果岭，裁判要判断是否严重违反行为标准。 应查哪一节（填到小数一级）？","a":"1.2","ex":"委员会可因严重不当行为取消资格；若依据行为准则处罚，先核对本场准则。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-1","choices":["1.2","1.3","2.1"]},{"q":"两名球员明知要罚杆，约定都不计罚，随后开始这一轮。 应查哪一节（填到小数一级）？","a":"1.3","ex":"明知规则适用却约定忽略规则或处罚，两人均取消资格。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-1","choices":["1.3","2.1","2.2"]},{"q":"半颗球仍在白线的场内一侧。球是否出界？ 应查哪一节（填到小数一级）？","a":"2.1","ex":"必须整颗球都在界外才算出界。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-2","choices":["2.1","2.2","2.3"]},{"q":"球同时碰到沙坑内的沙和普通区的草。它属于哪个区域？ 应查哪一节（填到小数一级）？","a":"2.2","ex":"普通区与特定区域重叠时，按特定区域处理，本例属于沙坑。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-2","choices":["2.2","2.3","2.4"]},{"q":"球靠在白色界桩旁。要判断界桩属于哪类物件。 应查哪一节（填到小数一级）？","a":"2.3","ex":"界外标志物有独立分类，不能仅因它可以拔出就视作可移动障碍物。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-2","choices":["2.3","2.4","3.1"]},{"q":"球进入委员会划定的禁止打球区。可以原地打吗？ 应查哪一节（填到小数一级）？","a":"2.4","ex":"不能直接打，应依该区所在的异常球场状况或罚杆区采取相应补救。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-2","choices":["2.4","3.1","3.2"]},{"q":"报名时要弄清按每洞胜负还是按全轮杆数决定名次。 应查哪一节（填到小数一级）？","a":"3.1","ex":"先区分比洞赛和比杆赛，再看个人或搭档以及总杆或净杆。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-3","choices":["3.1","3.2","3.3"]},{"q":"比洞赛中对手明确认可下一杆，随即表示反悔。 应查哪一节（填到小数一级）？","a":"3.2","ex":"有效的认可不能撤回或拒绝。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-3","choices":["3.2","3.3","4.1"]},{"q":"普通个人比杆赛中，球员漏推未进洞，已在下一洞开球。 应查哪一节（填到小数一级）？","a":"3.3","ex":"未按时纠正未完成进洞的错误，应取消资格。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-3","choices":["3.3","4.1","4.2"]},{"q":"开球后发现球包里有15支球杆。 应查哪一节（填到小数一级）？","a":"4.1","ex":"一轮最多14支，须按程序宣布超额球杆停止使用，再按赛制和涉及洞数处理处罚。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-4","choices":["4.1","4.2","4.3"]},{"q":"球碰树后只掉漆，球员想按球损坏换球。 应查哪一节（填到小数一级）？","a":"4.2","ex":"仅掉漆、擦伤不能按割破或出现裂纹的规定更换。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-4","choices":["4.2","4.3","5.1"]},{"q":"比赛时用测距仪测量高差来选杆。 应查哪一节（填到小数一级）？","a":"4.3","ex":"测距离和测高差须区别，后者属于禁止的使用方式。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-4","choices":["4.3","5.1","5.2"]},{"q":"委员会安排只打九个洞，这是否可以构成一轮？ 应查哪一节（填到小数一级）？","a":"5.1","ex":"一轮可由委员会指定为18洞或更少洞，按指定顺序打。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-5","choices":["5.1","5.2","5.3"]},{"q":"比杆赛开始前，球员想在比赛球道上练球。 应查哪一节（填到小数一级）？","a":"5.2","ex":"须区分比洞赛和比杆赛的赛前练习，并核对当地规则。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-5","choices":["5.2","5.3","5.4"]},{"q":"球员准时来到指定发球区，却没有能用来开球的球杆。 应查哪一节（填到小数一级）？","a":"5.3","ex":"须在指定地点和时间准备好打球，另有特定例外。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-5","choices":["5.3","5.4","5.5"]},{"q":"比杆赛球员擅自离开指定组，加入前一组继续打。 应查哪一节（填到小数一级）？","a":"5.4","ex":"应随委员会指定的组别打球，除非委员会批准变更。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-5","choices":["5.4","5.5","5.6"]},{"q":"刚完成一洞，球员想在该洞果岭练推。 应查哪一节（填到小数一级）？","a":"5.5","ex":"两洞之间有有限的练习许可，仍须遵守当地规则和打球速度要求。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-5","choices":["5.5","5.6","5.7"]},{"q":"轮到击球时，球员没有合理理由反复拖延。 应查哪一节（填到小数一级）？","a":"5.6","ex":"不合理延误可受处罚，并须留意委员会的打球速度政策。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-5","choices":["5.6","5.7","6.1"]},{"q":"委员会发出立即停赛信号，球员仍想打完本洞。 应查哪一节（填到小数一级）？","a":"5.7","ex":"应立即停止打球，恢复也须依规定进行。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-5","choices":["5.7","6.1","6.2"]},{"q":"普通比杆赛球员从发球区外开球。 应查哪一节（填到小数一级）？","a":"6.1","ex":"罚两杆，区外打出的杆不计，须及时回到发球区内纠正。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-6","choices":["6.1","6.2","6.3"]},{"q":"第一杆挥空后球仍在发球区，能否重新架球？ 应查哪一节（填到小数一级）？","a":"6.2","ex":"可以免罚重新架球，挥空的击球仍计入。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-6","choices":["6.2","6.3","6.4"]},{"q":"普通比杆赛误打了同组球员的球。 应查哪一节（填到小数一级）？","a":"6.3","ex":"通常罚两杆，错球击球不计，必须及时纠正。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-6","choices":["6.3","6.4","6.5"]},{"q":"比洞赛一方抢先击球，对手想要求重打。 应查哪一节（填到小数一级）？","a":"6.4","ex":"顺序错误本身不罚，对手可以及时取消该杆。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-6","choices":["6.4","6.5","7.1"]},{"q":"比洞赛对手已认可本洞，还需推入洞吗？ 应查哪一节（填到小数一级）？","a":"6.5","ex":"认可本洞即可使本洞结束。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-6","choices":["6.5","7.1","7.2"]},{"q":"寻球时拨开高草，怎样判断动作是否过度？ 应查哪一节（填到小数一级）？","a":"7.1","ex":"允许公平寻球所需的合理动作，超过合理范围而改善条件可能受罚。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-7","choices":["7.1","7.2","7.3"]},{"q":"两个同品牌同号码的球靠得很近，怎样辨认？ 应查哪一节（填到小数一级）？","a":"7.2","ex":"结合个人记号、目睹停球等证据，仅凭品牌号码未必能识别。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-7","choices":["7.2","7.3","7.4"]},{"q":"球上标记朝下，必须拿起才能辨认。 应查哪一节（填到小数一级）？","a":"7.3","ex":"先标位，清洁不得超过辨认所需程度，随后放回。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-7","choices":["7.3","7.4","8.1"]},{"q":"寻找自己的球时无意踩到它，使它移位。 应查哪一节（填到小数一级）？","a":"7.4","ex":"寻找或辨认时意外移动球不罚，应放回原位；位置不明时估计。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-7","choices":["7.4","8.1","8.2"]},{"q":"为扩大上杆空间，球员折断挡路的活树枝。 应查哪一节（填到小数一级）？","a":"8.1","ex":"改善影响击球的条件，若无适用例外，受一般性处罚。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-8","choices":["8.1","8.2","8.3"]},{"q":"球员故意在自己静止的球下坡处堆土，防止它滚走。 应查哪一节（填到小数一级）？","a":"8.2","ex":"禁止故意改变其他物理条件来影响自己静止的球。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-8","choices":["8.2","8.3","9.1"]},{"q":"为使对手更难推，球员故意踩坏其推击线。 应查哪一节（填到小数一级）？","a":"8.3","ex":"禁止故意改变物理条件来影响他人的球或下一杆。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-8","choices":["8.3","9.1","9.2"]},{"q":"球员不喜欢球位，想把静止球拨到旁边再打。 应查哪一节（填到小数一级）？","a":"9.1","ex":"按现状打球，除非某条规则允许或要求移动。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-9","choices":["9.1","9.2","9.3"]},{"q":"球晃了一下，但没有证据证明它离开原位。 应查哪一节（填到小数一级）？","a":"9.2","ex":"须已知或几乎肯定球移位，否则视为没有移动。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-9","choices":["9.2","9.3","9.4"]},{"q":"球道上的原球被风吹动，之前未经抛、放或放回。 应查哪一节（填到小数一级）？","a":"9.3","ex":"自然力移动球通常不罚，本例从新位置打。其他球位和程序有例外。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-9","choices":["9.3","9.4","9.5"]},{"q":"普通区试挥碰动自己的静止球，不属于寻球等例外。 应查哪一节（填到小数一级）？","a":"9.4","ex":"通常罚一杆并放回原位。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-9","choices":["9.4","9.5","9.6"]},{"q":"比洞赛对手未经允许拿起球道上球员的球。 应查哪一节（填到小数一级）？","a":"9.5","ex":"对手通常罚一杆，球须放回；规则规定的例外除外。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-9","choices":["9.5","9.6","9.7"]},{"q":"观众拿走球道上的静止球，原位已知。 应查哪一节（填到小数一级）？","a":"9.6","ex":"外来影响移动球不罚球员，须把球放回原位。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-9","choices":["10.1","9.6","9.7"]},{"q":"球已拿起，球位标被风吹离原位。 应查哪一节（填到小数一级）？","a":"9.7","ex":"把球或球位标放回原位，原位不明时估计。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-9","choices":["10.1","10.2","9.7"]},{"q":"球员把杆面贴在球上，一直将球推出去。 应查哪一节（填到小数一级）？","a":"10.1","ex":"应正当击打，不能推、拨或舀球。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-10","choices":["10.1","10.2","10.3"]},{"q":"个人比杆赛开球前问同组另一位参赛者该用几号杆。 应查哪一节（填到小数一级）？","a":"10.2","ex":"向不允许提供建议的人请求选杆建议，受一般性处罚。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-10","choices":["10.2","10.3","11.1"]},{"q":"一名球员同时让两名球童服务。 应查哪一节（填到小数一级）？","a":"10.3","ex":"同一时间只能有一名球童。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-10","choices":["10.3","11.1","11.2"]},{"q":"从球道打出的球意外击中观众，停在草上。 应查哪一节（填到小数一级）？","a":"11.1","ex":"通常不罚，从球停下的位置继续打。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-11","choices":["11.1","11.2","11.3"]},{"q":"观众故意用脚截停正在球道滚动的球。 应查哪一节（填到小数一级）？","a":"11.2","ex":"应依若未被截停时球可能停下的位置和区域处理。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-11","choices":["11.2","11.3","12.1"]},{"q":"球在滚动，球员故意移走前方落枝，避免球撞上它。 应查哪一节（填到小数一级）？","a":"11.3","ex":"为影响运动中的球而移动散置障碍物通常受一般性处罚。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-11","choices":["11.3","12.1","12.2"]},{"q":"半颗球碰到沙坑边界内地面上的沙。球是否在坑内？ 应查哪一节（填到小数一级）？","a":"12.1","ex":"部分球碰到边界内地面上的沙即可属于沙坑。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-12","choices":["12.1","12.2","12.3"]},{"q":"打沙坑球前，练习挥杆时杆头碰到坑内的沙。 应查哪一节（填到小数一级）？","a":"12.2","ex":"练习挥杆触沙属于禁止动作，通常受一般性处罚。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-12","choices":["12.2","12.3","13.1"]},{"q":"想在沙坑规则里找到坑内临时积水或不可打之球的补救索引。 应查哪一节（填到小数一级）？","a":"12.3","ex":"本节指向其他具体补救条款，例如临时积水查16.1c。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-12","choices":["12.3","13.1","13.2"]},{"q":"球停在错误果岭，球员想原地推向自己的果岭。 应查哪一节（填到小数一级）？","a":"13.1","ex":"错误果岭有妨碍时，须依法完全补救。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-13","choices":["13.1","13.2","13.3"]},{"q":"球员决定不拔旗杆，推球后球意外击中旗杆。 应查哪一节（填到小数一级）？","a":"13.2","ex":"依规定留下旗杆，意外击中它通常不罚。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-13","choices":["13.2","13.3","14.1"]},{"q":"球悬在洞边，球员抵达洞边后还能等多久？ 应查哪一节（填到小数一级）？","a":"13.3","ex":"合理时间走到洞边，再等十秒判断球是否落入。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-13","choices":["13.3","14.1","14.2"]},{"q":"推球前要拿球清洁，再放回原位。 应查哪一节（填到小数一级）？","a":"14.1","ex":"先标示再拿起，果岭上依规则拿起的球可以清洁。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-14","choices":["14.1","14.2","14.3"]},{"q":"球须放回原位，但准确位置已无法确定。 应查哪一节（填到小数一级）？","a":"14.2","ex":"估计原点并在该点放回；若原球位改变，另有规定。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-14","choices":["14.2","14.3","14.4"]},{"q":"从肩高抛球，尚未击打。 应查哪一节（填到小数一级）？","a":"14.3","ex":"一般应由球员从膝高垂直下抛，须纠正错误方式；规则25有调整。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-14","choices":["14.3","14.4","14.5"]},{"q":"球员有意把替换球抛入使用，程序错误。怎样判断它是否已成为使用中球？ 应查哪一节（填到小数一级）？","a":"14.4","ex":"即使程序错误，有意投入使用的球也可能已是使用中球。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-14","choices":["14.4","14.5","14.6"]},{"q":"击球前发现球抛在错误的补救区。 应查哪一节（填到小数一级）？","a":"14.5","ex":"在对该球击球前可依规定纠正替换、放回、抛球或放置错误。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-14","choices":["14.5","14.6","14.7"]},{"q":"需从上一杆位置再打，而上一杆从普通区打出。 应查哪一节（填到小数一级）？","a":"14.6","ex":"按上一杆所在区域决定程序。普通区通常须在规定的一支球杆长度补救区内抛球。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-14","choices":["14.6","14.7","15.1"]},{"q":"普通比杆赛球员已经从错误地点击球。 应查哪一节（填到小数一级）？","a":"14.7","ex":"一般罚两杆；若属严重违规，须及时纠正，否则可能取消资格。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-14","choices":["14.7","15.1","15.2"]},{"q":"球旁有一片脱落的叶子，想把它移开。 应查哪一节（填到小数一级）？","a":"15.1","ex":"通常可移开散置障碍物；若使球移动，还须按球的位置及例外判断。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-15","choices":["15.1","15.2","15.3"]},{"q":"移开空饮料瓶时，靠在瓶上的球移动了。 应查哪一节（填到小数一级）？","a":"15.2","ex":"因移走可移动障碍物导致球移动不罚，应放回原位。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-15","choices":["15.2","15.3","16.1"]},{"q":"另一颗球在推击线上，球员希望对方先拿起。 应查哪一节（填到小数一级）？","a":"15.3","ex":"球或球位标造成妨碍时，可以依规定要求拿起或移开。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-15","choices":["15.3","16.1","16.2"]},{"q":"普通区不可移动的喷头妨碍正常站位。 应查哪一节（填到小数一级）？","a":"16.1","ex":"满足条件可免罚补救，以最近完全补救点确定补救区。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-16","choices":["16.1","16.2","16.3"]},{"q":"蜂群就在球旁，在那里击球可能受到严重身体伤害。 应查哪一节（填到小数一级）？","a":"16.2","ex":"危险动物状况允许根据球所在区域采取适用补救。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-16","choices":["16.2","16.3","16.4"]},{"q":"球道上的球嵌入自己上一杆造成的球痕。 应查哪一节（填到小数一级）？","a":"16.3","ex":"普通区内满足嵌入球条件通常可免罚，须考虑例外。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-16","choices":["16.3","16.4","17.1"]},{"q":"合理怀疑球嵌入，不拿起看不清。 应查哪一节（填到小数一级）？","a":"16.4","ex":"可标位后拿起检查，清洁仅限规则许可的程度。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-16","choices":["16.4","17.1","17.2"]},{"q":"红色罚杆区的球，球员想选侧面补救。 应查哪一节（填到小数一级）？","a":"17.1","ex":"加一杆，以最后越过边界的估计点为基准，在不近洞的两支球杆长度范围内按规定抛球。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-17","choices":["17.1","17.2","17.3"]},{"q":"从罚杆区打出的一杆仍停在同一罚杆区。 应查哪一节（填到小数一级）？","a":"17.2","ex":"可按现状打，也有区内击球后的特定罚杆补救方案。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-17","choices":["17.2","17.3","18.1"]},{"q":"球停在罚杆区的固定桥上，想按异常球场状况免费脱困。 应查哪一节（填到小数一级）？","a":"17.3","ex":"球在罚杆区内不能按异常球场状况、嵌入球或不可打之球的通常规则补救。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-17","choices":["17.3","18.1","18.2"]},{"q":"球可以找到，球员自愿罚一杆回上一杆位置重打。 应查哪一节（填到小数一级）？","a":"18.1","ex":"任何时候均可选杆数与距离补救。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-18","choices":["18.1","18.2","18.3"]},{"q":"开始寻球已过三分钟，球仍找不到，也没有适用例外。 应查哪一节（填到小数一级）？","a":"18.2","ex":"球已遗失，通常加一杆从上一杆地点打。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-18","choices":["18.2","18.3","19.1"]},{"q":"开球可能在罚杆区外遗失，球员想先打另一颗节省时间。 应查哪一节（填到小数一级）？","a":"18.3","ex":"可打暂定球，打前须明确宣告意图。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-18","choices":["18.3","19.1","19.2"]},{"q":"普通区灌木下的球，谁有权决定它不可打？ 应查哪一节（填到小数一级）？","a":"19.1","ex":"由球员本人决定，罚杆区内不能使用此规则。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-19","choices":["19.1","19.2","19.3"]},{"q":"普通区的球不可打，有哪三种补救？ 应查哪一节（填到小数一级）？","a":"19.2","ex":"均加一杆，可选杆数与距离、后方线上或侧面补救。后两者须知道原球位置。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-19","choices":["19.2","19.3","20.1"]},{"q":"沙坑内不可打，希望沿后方线到坑外抛球。 应查哪一节（填到小数一级）？","a":"19.3","ex":"此坑外后方线上选项总共罚两杆。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-19","choices":["19.3","20.1","20.2"]},{"q":"比杆赛中对程序有疑问，球员想打两个球完成本洞。 应查哪一节（填到小数一级）？","a":"20.1","ex":"应及时决定采用双球程序，并在交卡前报告委员会，即使两球成绩相同。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-20","choices":["20.1","20.2","20.3"]},{"q":"裁判已经作出裁定，后来发现裁定可能有误。 应查哪一节（填到小数一级）？","a":"20.2","ex":"按裁判及委员会的权限和纠错规定处理，球员不能自行更改处罚。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-20","choices":["20.2","20.3","21.1"]},{"q":"委员会遇到没有规则直接涵盖的情况。 应查哪一节（填到小数一级）？","a":"20.3","ex":"按合理、公平并与类似情形规则一致的方式处理。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-20","choices":["20.3","21.1","21.2"]},{"q":"比赛按每洞成绩换成积分，再累计积分排名。 应查哪一节（填到小数一级）？","a":"21.1","ex":"这是定分式比杆赛。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-21","choices":["21.1","21.2","21.3"]},{"q":"规程规定每洞最多记八杆。 应查哪一节（填到小数一级）？","a":"21.2","ex":"最高杆数赛由委员会规定单洞上限。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-21","choices":["21.2","21.3","21.4"]},{"q":"各洞与固定目标成绩比较，记作胜、平或负。 应查哪一节（填到小数一级）？","a":"21.3","ex":"标准杆／柏忌赛按球员与目标成绩比较的结果决定胜负。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-21","choices":["21.3","21.4","21.5"]},{"q":"三人各打自己的球，每人同时与另外两人各打一场比洞赛。 应查哪一节（填到小数一级）？","a":"21.4","ex":"三球比洞赛的两场对抗分别计算。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-21","choices":["21.4","21.5","22.1"]},{"q":"赛事采用其他非标准形式，想找可调整规则的依据。 应查哪一节（填到小数一级）？","a":"21.5","ex":"按其他比赛形式的规定及本场比赛条件处理。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-21","choices":["21.5","22.1","22.2"]},{"q":"两名搭档轮流打同一颗球。 应查哪一节（填到小数一级）？","a":"22.1","ex":"四人二球赛要求一方两人交替击球。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-22","choices":["22.1","22.2","22.3"]},{"q":"本杆轮到乙，搭档甲能替本方标示球位吗？ 应查哪一节（填到小数一级）？","a":"22.2","ex":"任一搭档可为本方执行允许的操作，击球顺序仍须遵守。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-22","choices":["22.2","22.3","22.4"]},{"q":"四人二球赛中甲刚击球，本方随后加一罚杆。该谁打？ 应查哪一节（填到小数一级）？","a":"22.3","ex":"罚杆不改变击球顺序，下一杆由乙打。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-22","choices":["22.3","22.4","22.5"]},{"q":"四人二球赛开始时，两位搭档应分别在哪里准备？ 应查哪一节（填到小数一级）？","a":"22.4","ex":"按开赛规则区分第一位开球者和第二位击球者的位置要求。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-22","choices":["22.4","22.5","22.6"]},{"q":"四人二球赛两人合计带14支杆，想共用。 应查哪一节（填到小数一级）？","a":"22.5","ex":"合计不超过14支时，搭档可共用球杆。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-22","choices":["22.5","22.6","23.1"]},{"q":"四人二球赛中，搭档要在击球时站在球后延长线上观察球路。 应查哪一节（填到小数一级）？","a":"22.6","ex":"击球时搭档为观察球路而站在受限区域受限制。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-22","choices":["22.6","23.1","23.2"]},{"q":"两名搭档各打自己的球，以本方较低洞分计分。 应查哪一节（填到小数一级）？","a":"23.1","ex":"这是四球赛。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-23","choices":["23.1","23.2","23.3"]},{"q":"四球比杆赛只写洞分，没有标明是谁打出的。 应查哪一节（填到小数一级）？","a":"23.2","ex":"计入本方成绩的洞分必须能够对应到具体搭档。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-23","choices":["23.2","23.3","23.4"]},{"q":"四球赛一人先完成一洞，如何判断何时算本方完成？ 应查哪一节（填到小数一级）？","a":"23.3","ex":"取决于赛制以及另一人是否仍可能取得有用的洞分。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-23","choices":["23.3","23.4","23.5"]},{"q":"四球赛一人迟到，另一人要独自代表本方开赛。 应查哪一节（填到小数一级）？","a":"23.4","ex":"一人即可代表本方，迟到搭档按规定时机加入。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-23","choices":["23.4","23.5","23.6"]},{"q":"四球赛中一人想替搭档拿球，球员本人本来有权这样做。 应查哪一节（填到小数一级）？","a":"23.5","ex":"搭档可代为执行允许的操作，其行为也可能导致对另一人的处罚。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-23","choices":["23.5","23.6","23.7"]},{"q":"四球赛中轮到本方打，较靠近洞的搭档想先打。 应查哪一节（填到小数一级）？","a":"23.6","ex":"本方一般可按有利的顺序打，另须考虑比洞赛认可等限制。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-23","choices":["23.6","23.7","23.8"]},{"q":"四球赛两人合计带20支球杆，想共用一支。 应查哪一节（填到小数一级）？","a":"23.7","ex":"共用许可要求两人携带球杆总数不超过14支。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-23","choices":["23.7","23.8","23.9"]},{"q":"四球赛一名搭档站在另一人的球后，想在其击球时看推球路线。 应查哪一节（填到小数一级）？","a":"23.8","ex":"搭档在击球时观察球路的站位受限。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-23","choices":["23.8","23.9","24.1"]},{"q":"四球赛一名搭档违规，怎样判断处罚是否连及另一人？ 应查哪一节（填到小数一级）？","a":"23.9","ex":"区分只罚个人、涉及双方、或取消本方资格的情形。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-23","choices":["23.9","24.1","24.2"]},{"q":"校际赛合并各队成员成绩排名，应查哪类赛制？ 应查哪一节（填到小数一级）？","a":"24.1","ex":"团体赛按各队球员或各方的成绩决定队伍结果。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-24","choices":["24.1","24.2","24.3"]},{"q":"两队同分怎样决胜？委员会应在哪里预先规定？ 应查哪一节（填到小数一级）？","a":"24.2","ex":"按团体赛条件确定计分、处理平局等办法。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-24","choices":["24.2","24.3","24.4"]},{"q":"球队想让一名参赛球员兼任队长。 应查哪一节（填到小数一级）？","a":"24.3","ex":"队长可以同时是该赛事的球员。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-24","choices":["24.3","24.4","25.1"]},{"q":"球队希望指定一人给队员提供建议。 应查哪一节（填到小数一级）？","a":"24.4","ex":"须看委员会是否允许指定建议给予者，并遵守相关限制。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-24","choices":["24.4","25.1","25.2"]},{"q":"裁判先判断针对残障球员的某项调整是否适用于当事人。 应查哪一节（填到小数一级）？","a":"25.1","ex":"按球员符合的类别与相应条款确定适用范围。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-25","choices":["25.1","25.2","25.3"]},{"q":"视障球员想请辅助人员协助确定站位。 应查哪一节（填到小数一级）？","a":"25.2","ex":"视障球员可在规定范围内得到辅助人员帮助。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-25","choices":["25.2","25.3","25.4"]},{"q":"截肢球员想借助义肢握杆。 应查哪一节（填到小数一级）？","a":"25.3","ex":"按截肢球员专门条款判断义肢的使用。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-25","choices":["25.3","25.4","25.5"]},{"q":"使用轮椅的球员想确定抛球时的膝盖高度。 应查哪一节（填到小数一级）？","a":"25.4","ex":"使用辅助移动设备的球员适用相应的抛球程序调整。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-25","choices":["25.4","25.5","25.6"]},{"q":"有智力障碍的球员需要辅助人员协助理解比赛程序。 应查哪一节（填到小数一级）？","a":"25.5","ex":"按本节判断辅助人员及监督者的角色和限制。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-25","choices":["1.1","25.5","25.6"]},{"q":"裁判判断残障球员是否不合理延误，要考虑该球员的身体条件。 应查哪一节（填到小数一级）？","a":"25.6","ex":"这是适用于各类残障球员的一般规定。","url":"https://www.randa.org/rog/the-rules-of-golf/rule-25","choices":["1.1","1.2","25.6"]}].concat(examples);
+const cases=[
+{"id":"case-search","q":"个人比杆赛。小林正在长草中寻找自己的球，合理拨草时意外让球滚动了20厘米。球的原位可以确定，球位没有改变，他还没有击球。应如何处理？","a":"7.4","accepted":["7.4"],"steps":["不罚杆。","把球放回原来的位置，再继续打球。"],"why":"决定条件是正在合理寻找自己的球、移动是意外造成。7.4专门处理寻球或辨认时的意外移动，同时规定放回原位。","compare":"9.4通常处理球员移动自己的球，但寻球是其中的免罚例外。9.6适用于外来影响，本例由球员自己造成。"},
+{"id":"case-practice","q":"个人比杆赛。小林的球停在普通区，已确认是自己的球。他为了练习下一杆而试挥，杆头碰动球10厘米。不是寻球、测量或执行补救，球位未改变，他还没有再击球。应如何处理？","a":"9.4","accepted":["9.4","9.4a+9.4b"],"steps":["小林罚一杆。","把球放回原位，再继续打球。"],"why":"球在普通区且确定由球员本人试挥移动。没有适用的免罚例外，9.4b规定罚一杆，9.4a要求放回。填写9.4即可覆盖这两部分。","compare":"7.4要求寻球或辨认过程；13.1d(1)要求球在果岭上。本例均不满足。只写9.4b只说明处罚，未涵盖放回义务。"},
+{"id":"case-spectator","q":"个人比杆赛。观众在球道上捡起小林的静止球，立即归还。小林和记分员亲眼看见，原位已知，球位未改变。小林应该怎样继续？","a":"9.6","accepted":["9.6"],"steps":["小林不罚杆。","把球放回原来的位置，再继续打球。"],"why":"观众属于外来影响，且亲眼见到其拿球，满足已知或几乎肯定的条件。因此按9.6免罚并放回原位。","compare":"9.3中的自然力包括风和水；观众拿球属于外来影响。9.5用于比洞赛对手的相关行为。"},
+{"id":"case-wind","q":"个人比杆赛。小林上一杆把球打到球道，球停稳后被一阵风吹动半米，仍在普通区。球此前没有被抛、放或放回，小林也尚未开始下一杆上杆。应怎样继续？","a":"9.3","accepted":["9.3"],"steps":["不罚杆。","从风吹动后球停下的新位置打球。"],"why":"移动原因是自然力，且题目排除了放回果岭球、抛放后跨区域等例外。9.3的通常处理就是免罚，从新位置打。","compare":"9.6要求外来影响移动球。风属于自然力。不能把所有静止球的移动都处理为放回。"},
+{"id":"case-green","q":"个人比杆赛。小林的球在本洞果岭上。他走近时不小心踢动球，原位清楚，尚未击球。应该怎么处理？","a":"13.1d(1)","accepted":["13.1d(1)","13.1d"],"steps":["不罚杆。","把球放回原位，再继续打球。"],"why":"球在果岭上，而且是意外移动。13.1d(1)专门规定这类情形免罚并放回，填写13.1d也接受。","compare":"普通区试挥碰球可能依9.4罚一杆，本题的果岭位置使专门免罚条款适用。故意拿球或触球须另作判断。"},
+{"id":"case-wrongball","q":"普通个人比杆赛，第5洞。小林在长草中误把另一位球员的静止球击打一杆，随即发现。自己的原球已在三分钟内找到，仍在原位。他尚未在第6洞开球。应该怎样处理？","a":"6.3c(1)","accepted":["6.3c(1)","6.3c"],"steps":["小林罚两杆。","打错球的那一杆不计。","继续打自己的原球，或依法对原球采取补救；须在第6洞开球前纠正。"],"why":"题目是比杆赛中打错球，适用6.3c(1)。该条同时规定两杆处罚、不计算错球击球，以及纠正的期限。填写6.3c也接受。","compare":"6.3b是错误替换球。本例打的是别人的球，不是已替换成为自己使用中球的球。"},
+{"id":"case-ob","q":"普通个人比杆赛。小林从本洞发球区开出的球已经确认完全出界，未打暂定球。本场没有采用界外球替代补救的当地规则。下一步在哪里打、罚几杆，接下来打的是第几杆？","a":"18.2b","accepted":["18.2b"],"steps":["加一杆罚杆。","从原发球区重新打一球，可以重新架球。","原开球1杆加罚1杆，接下来打第3杆。"],"why":"球已经确认出界，18.2b要求杆数与距离补救。18.2a负责判断是否出界，而题目问的是确认出界后的处理。发球区重打程序见14.6a。","compare":"17.1d适用于罚杆区。白线外的界外球不能按红色罚杆区的两支球杆长度侧面补救处理。"},
+{"id":"case-red","q":"个人比杆赛。球停在红色罚杆区，小林决定采用侧面补救。球最后越过红色边界的点P已确定，P旁是普通区。他不适用规则25的特殊调整。请写出罚杆、基准点、补救区大小及位置限制。","a":"17.1d(3)","accepted":["17.1d(3)"],"steps":["加一杆罚杆。","以最后越过红色边界的点P为基准。","在距P两支球杆长度内、不比P更近洞、同一罚杆区外的合法补救区抛球；球须停在补救区内。"],"why":"红色罚杆区与选择侧面补救两个条件一起，对应17.1d(3)。基准是最后越界点，而不是水中球的位置。","compare":"19.2c是不可打之球的侧面补救，以原球位置为基准。16.1b的免罚补救通常是一支球杆长度。"},
+{"id":"case-bunker","q":"个人比杆赛。球在沙坑内，小林自行决定把球当作不可打。他选择沿后方线到沙坑外补救，未使用轮式辅助移动设备，也没有异常球场状况补救的依据。应罚几杆、怎样抛球？","a":"19.3b","accepted":["19.3b"],"steps":["总共罚两杆。","使原球位置处在球洞与抛球点之间，在沙坑外沿后方线向后抛球。","球首先触地的点形成一支球杆长度补救区；球须停在合法区域内，且不比原球位置更近洞。"],"why":"球在沙坑内，并明确选用坑外后方线上不可打补救，因此适用19.3b的两杆选项；具体后方线上程序参见19.2b。","compare":"19.3a下一杆罚杆的后方线上及侧面补救要求留在坑内。回上一杆处的杆数与距离补救是另一种选项。"},
+{"id":"case-drop","q":"个人比杆赛。小林按喷头妨碍采取免罚补救，补救区已正确确定。他从肩高抛球，球停在补救区内，尚未击打。小林可以直接打吗？需要因这次抛球受罚吗？","a":"14.3b(4)","accepted":["14.3b(4)","14.3b"],"steps":["应重新以正确方式抛球，由球员本人从膝高垂直向下抛。","尚未击打，按规定纠正不罚杆。","肩高这次错误抛球不计入两次正确抛球后需要放球的次数。"],"why":"这里的问题是抛球方式错误且尚未击打。14.3b(4)规定必须重新正确抛球，错误方式不计入两次抛球次数；填写14.3b也接受。","compare":"14.3c处理以正确方式抛球后没有停在补救区的情况。本例肩高抛球首先违反了正确方式。"}
+]
+;
+const el = id => document.getElementById(id);
+const storageKey = 'golf-rules-mistakes-v1';
+const allQuestions = new Map();
+bank.forEach((q, i) => {
+  q.id = 'basic-' + i;
+  q.kind = 'basic';
+  allQuestions.set(q.id, q);
+});
+cases.forEach(q => {
+  q.kind = 'case';
+  q.url = 'https://www.randa.org/rog/the-rules-of-golf/rule-' + parseInt(q.a);
+  allQuestions.set(q.id, q);
+});
+let mistakes = {};
+try {
+  const saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
+  if (saved && typeof saved === 'object' && !Array.isArray(saved)) {
+    for (const [id, record] of Object.entries(saved)) {
+      if (allQuestions.has(id) && record && typeof record === 'object') mistakes[id] = record;
+    }
+  }
+} catch {
+  el('saveNotice').textContent = '当前无法读取错题记录；本次仍可练习。';
+}
+let level = 'basic';
+let questions = [];
+let index = 0;
+let correct = 0;
+let phase = 'answer';
+let selected = '';
+let ruleCorrect = false;
+let review = false;
+let recordedThisAttempt = false;
+let submitted = {rule:'', action:''};
+function normalize(value) {
+  return value.normalize('NFKC').toLowerCase().replace(/规则|rule|\s/g, '').replace(/[·•]/g, '.');
+}
+function ruleMatches(q, value) {
+  return (q.accepted || [q.a]).some(answer => normalize(answer) === normalize(value));
+}
+function shuffle(items) {
+  for (let i = items.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [items[i], items[j]] = [items[j], items[i]];
+  }
+  return items;
+}
+function persist() {
+  try {
+    localStorage.setItem(storageKey, JSON.stringify(mistakes));
+    el('saveNotice').textContent = '错题保存在当前浏览器。换设备或清除网站数据后不会同步保留。';
+  } catch {
+    el('saveNotice').textContent = '浏览器未能保存错题；本次会话中仍可查看，关闭后可能丢失。';
+  }
+  el('mistakeCount').textContent = Object.values(mistakes).filter(r => !r.mastered).length;
+}
+function addMistake(reason) {
+  const q = questions[index];
+  if (recordedThisAttempt) return;
+  const old = mistakes[q.id];
+  mistakes[q.id] = {
+    rule: submitted.rule, action: submitted.action, reason,
+    count: (Number(old?.count) || 0) + 1, mastered: false,
+    time: new Date().toISOString()
+  };
+  recordedThisAttempt = true;
+  persist();
+}
+function clearError() {
+  el('validation').hidden = true;
+  el('answerInput').removeAttribute('aria-invalid');
+  el('actionInput').removeAttribute('aria-invalid');
+}
+function error(message, input) {
+  el('validation').textContent = message;
+  el('validation').hidden = false;
+  input.setAttribute('aria-invalid', 'true');
+  input.focus();
+}
+function start(single) {
+  review = Boolean(single);
+  const chapter = Number(el('chapter').value);
+  const pool = level === 'basic' ? bank : cases;
+  questions = single ? [single] : chapter ? pool.filter(q => parseInt(q.a) === chapter) : shuffle([...pool]).slice(0, 6);
+  index = 0;
+  correct = 0;
+  el('practice').hidden = false;
+  el('mistakesPanel').hidden = true;
+  render();
+}
+function render() {
+  selected = '';
+  phase = 'answer';
+  recordedThisAttempt = false;
+  clearError();
+  el('feedback').replaceChildren();
+  el('feedback').classList.add('hide');
+  el('selfCheck').hidden = true;
+  el('nextBtn').classList.add('hide');
+  el('options').replaceChildren();
+  el('answerInput').value = '';
+  el('actionInput').value = '';
+  el('answerInput').disabled = false;
+  el('actionInput').disabled = false;
+  el('checkBtn').disabled = false;
+  el('checkBtn').classList.remove('hide');
+  el('scoreLabel').textContent = '本轮完成正确 ' + correct + ' 题';
+  el('progressLabel').textContent = '已完成 ' + index + ' / ' + questions.length;
+  el('progressFill').style.width = (questions.length ? index / questions.length * 100 : 0) + '%';
+  if (!questions.length) {
+    el('prompt').textContent = '这个章节暂未收录案例挑战题。请选择综合练习，或规则 6、7、9、13、14、17、18、19。';
+    el('questionNum').textContent = '暂无案例';
+    el('writeArea').classList.add('hide');
+    el('checkBtn').classList.add('hide');
+    el('sub').textContent = '';
+    return;
+  }
+  const q = questions[index];
+  el('prompt').textContent = q.q;
+  el('questionNum').textContent = '第 ' + (index + 1) + ' / ' + questions.length + ' 题';
+  el('leveltag').textContent = (review ? '错题重练 · ' : '') + (q.kind === 'case' ? '案例挑战' : '入门练习');
+  el('writeArea').classList.toggle('hide', q.kind !== 'case');
+  el('sub').textContent = q.kind === 'case' ? '写出处理过程，再填主要规则编号。编号自动核对；处理过程提交后逐项自评。' : '先选规则号，再确认答案。';
+  if (q.kind === 'basic') {
+    el('checkBtn').disabled = true;
+    shuffle([...q.choices]).forEach(choice => {
+      const button = document.createElement('button');
+      button.className = 'choice';
+      button.textContent = choice;
+      button.setAttribute('aria-pressed', 'false');
+      button.onclick = () => {
+        if (phase !== 'answer') return;
+        selected = choice;
+        [...el('options').children].forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+        el('checkBtn').disabled = false;
+      };
+      el('options').appendChild(button);
+    });
+  }
+}
+function paragraph(parent, title, value) {
+  const p = document.createElement('p');
+  const strong = document.createElement('strong');
+  strong.textContent = title + ' ';
+  p.append(strong, document.createTextNode(value));
+  parent.appendChild(p);
+}
+function explanation(parent, q) {
+  paragraph(parent, '依据', q.a);
+  if (q.kind === 'case') {
+    const list = document.createElement('ol');
+    q.steps.forEach(step => {
+      const item = document.createElement('li');
+      item.textContent = step;
+      list.appendChild(item);
+    });
+    parent.appendChild(list);
+    paragraph(parent, '为什么适用', q.why);
+    paragraph(parent, '容易混淆', q.compare);
+  } else {
+    paragraph(parent, '规则适用说明', q.ex);
+    paragraph(parent, '定位方法', '把题目中的球场区域、动作和比赛形式，与上面的规则内容对应起来。本题要求的编号层级为 ' + q.a + '。');
+  }
+  const link = document.createElement('a');
+  link.href = q.url;
+  link.target = '_blank';
+  link.rel = 'noopener';
+  link.textContent = '查看 R&A 官方章节';
+  parent.appendChild(link);
+}
+function submit() {
+  if (phase !== 'answer') return;
+  const q = questions[index];
+  if (!q) return;
+  clearError();
+  submitted = {rule: q.kind === 'case' ? el('answerInput').value.trim() : selected, action: el('actionInput').value.trim()};
+  if (q.kind === 'case' && !submitted.action) return error('先写出你认为应怎样处理。', el('actionInput'));
+  if (!submitted.rule) return error('请填写依据的规则编号。', el('answerInput'));
+  ruleCorrect = ruleMatches(q, submitted.rule);
+  phase = 'checking';
+  el('actionInput').disabled = true;
+  el('checkBtn').disabled = true;
+  el('answerInput').disabled = ruleCorrect;
+  [...el('options').children].forEach(b => {
+    b.disabled = true;
+    if (b.textContent === q.a) b.classList.add('correct');
+    else if (b.textContent === selected) b.classList.add('wrong');
+  });
+  if (!ruleCorrect) {
+    addMistake('规则编号有误');
+    if (q.kind === 'case') error('规则编号需要修正。下面已列出适用原因，可以对照修改。', el('answerInput'));
+  }
+  const feed = el('feedback');
+  feed.className = 'feedback' + (ruleCorrect ? '' : ' bad');
+  paragraph(feed, '编号核对', ruleCorrect ? '匹配。本题处理过程还需逐项核对。' : '本次编号未匹配，已加入错题合集。');
+  paragraph(feed, '你的原答案', submitted.rule + (q.kind === 'case' ? '；' + submitted.action : ''));
+  explanation(feed, q);
+  if (q.kind === 'basic') {
+    finish(ruleCorrect);
+    return;
+  }
+  el('selfCheck').hidden = false;
+  el('checkItems').replaceChildren();
+  q.steps.forEach(step => {
+    const label = document.createElement('label');
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    label.append(checkbox, document.createTextNode('我的原答案已包含：' + step));
+    el('checkItems').appendChild(label);
+  });
+  el('selfMessage').textContent = '按你提交前的原答案勾选。遗漏、误判或只在看解析后才想起的要点，选「有遗漏，加入错题」。';
+}
+function finish(actionCorrect) {
+  if (phase !== 'checking') return;
+  const q = questions[index];
+  if (!actionCorrect) addMistake(ruleCorrect ? '处理过程有误或遗漏（自评）' : '规则编号有误');
+  if (ruleCorrect && actionCorrect) {
+    correct++;
+    if (review && mistakes[q.id]) {
+      mistakes[q.id].mastered = true;
+      persist();
+    }
+  }
+  phase = 'done';
+  el('selfCheck').hidden = true;
+  el('answerInput').disabled = true;
+  el('nextBtn').classList.remove('hide');
+  el('nextBtn').textContent = index === questions.length - 1 ? '查看本轮结果' : '下一道题';
+  el('scoreLabel').textContent = '本轮完成正确 ' + correct + ' 题';
+  el('progressLabel').textContent = '已完成 ' + (index + 1) + ' / ' + questions.length;
+  el('progressFill').style.width = (index + 1) / questions.length * 100 + '%';
+}
+el('allCorrect').onclick = () => {
+  if ([...el('checkItems').querySelectorAll('input')].some(c => !c.checked)) {
+    el('selfMessage').textContent = '请先逐项核对并勾选；有未覆盖的要点可直接选「有遗漏，加入错题」。';
+    return;
+  }
+  finish(true);
+};
+el('hasMistake').onclick = () => finish(false);
+el('nextBtn').onclick = () => {
+  if (phase === 'results') return start();
+  if (phase !== 'done') return;
+  index++;
+  if (index < questions.length) return render();
+  phase = 'results';
+  el('prompt').textContent = '本轮完成，正确 ' + correct + ' / ' + questions.length + ' 题';
+  el('sub').textContent = '案例成绩由首次规则编号核对与处理过程自评共同决定。';
+  el('feedback').classList.add('hide');
+  el('writeArea').classList.add('hide');
+  el('options').replaceChildren();
+  el('checkBtn').classList.add('hide');
+  el('questionNum').textContent = '本轮结束';
+  el('nextBtn').textContent = '再练一轮';
+};
+function showMistakes() {
+  el('practice').hidden = true;
+  el('mistakesPanel').hidden = false;
+  const list = el('mistakeList');
+  list.replaceChildren();
+  const records = Object.entries(mistakes).filter(([, r]) => el('showMastered').checked || !r.mastered);
+  if (!records.length) {
+    list.textContent = '这里还没有待复习的错题。答错编号或自评有遗漏后，会自动收录。';
+  }
+  records.forEach(([id, record]) => {
+    const q = allQuestions.get(id);
+    const card = document.createElement('details');
+    const summary = document.createElement('summary');
+    summary.textContent = (record.mastered ? '已掌握 · ' : '待复习 · ') + q.q;
+    card.appendChild(summary);
+    paragraph(card, '最近一次原答案', String(record.rule || '') + '；' + String(record.action || ''));
+    paragraph(card, '收录原因', String(record.reason || '') + ' · 累计答错 ' + (Number(record.count) || 1) + ' 次');
+    explanation(card, q);
+    const retry = document.createElement('button');
+    retry.className = 'btn';
+    retry.textContent = '重练这道题';
+    retry.onclick = () => start(q);
+    card.appendChild(retry);
+    list.appendChild(card);
+  });
+}
+el('openMistakes').onclick = showMistakes;
+el('showMastered').onchange = showMistakes;
+el('backPractice').onclick = () => {
+  el('mistakesPanel').hidden = true;
+  el('practice').hidden = false;
+};
+el('checkBtn').onclick = submit;
+el('answerInput').oninput = () => {
+  const q = questions[index];
+  if (q && ruleMatches(q, el('answerInput').value)) clearError();
+};
+el('actionInput').oninput = () => {
+  if (el('actionInput').value.trim()) el('actionInput').removeAttribute('aria-invalid');
+};
+el('answerInput').onkeydown = e => {
+  if (e.key === 'Enter' && !e.isComposing && phase === 'answer') submit();
+};
+el('chapter').onchange = () => start();
+el('resetBtn').onclick = () => start();
+document.querySelectorAll('.mode').forEach(button => {
+  button.onclick = () => {
+    level = button.dataset.level === '1' ? 'basic' : 'case';
+    document.querySelectorAll('.mode').forEach(b => b.classList.toggle('active', b === button));
+    start();
+  };
+});
+let touchWave = null;
+document.addEventListener('pointerdown', event => {
+  const button = event.target.closest('button');
+  if (!button || button.disabled || !event.isPrimary || event.button !== 0 || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const wave = document.createElement('span');
+  wave.className = 'wave';
+  wave.setAttribute('aria-hidden', 'true');
+  const rect = button.getBoundingClientRect();
+  const size = 2 * Math.hypot(rect.width, rect.height) + 'px';
+  wave.style.width = size;
+  wave.style.height = size;
+  wave.style.left = (event.clientX - rect.left) + 'px';
+  wave.style.top = (event.clientY - rect.top) + 'px';
+  button.appendChild(wave);
+  touchWave = {button, wave, id: event.pointerId};
+  setTimeout(() => {wave.remove(); if (touchWave?.wave === wave) touchWave = null;}, 560);
+});
+document.addEventListener('pointermove', event => {
+  if (!touchWave || touchWave.id !== event.pointerId || !event.buttons) return;
+  const rect = touchWave.button.getBoundingClientRect();
+  touchWave.wave.style.left = (event.clientX - rect.left) + 'px';
+  touchWave.wave.style.top = (event.clientY - rect.top) + 'px';
+});
+window.addEventListener('storage', event => {
+  if (event.key !== storageKey) return;
+  try {
+    const saved = JSON.parse(event.newValue || '{}');
+    if (saved && typeof saved === 'object' && !Array.isArray(saved)) {
+      mistakes = Object.fromEntries(Object.entries(saved).filter(([id, r]) => allQuestions.has(id) && r && typeof r === 'object'));
+      el('mistakeCount').textContent = Object.values(mistakes).filter(r => !r.mastered).length;
+      if (!el('mistakesPanel').hidden) showMistakes();
+    }
+  } catch {}
+});
+el('mistakeCount').textContent = Object.values(mistakes).filter(r => !r.mastered).length;
+start();
+
+</script></body></html>
