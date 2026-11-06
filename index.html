@@ -1,0 +1,391 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#183f35"><title>高尔夫规则记忆地图 · Golf Rules Memory Map</title><style>
+*{box-sizing:border-box}body{margin:0;font:16px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#f5f4eb;color:#203f34}button,input,textarea{font:inherit}button,summary,a{touch-action:manipulation}button{color:inherit;cursor:pointer;min-height:44px;border:1px solid #b8c6b4;border-radius:10px;background:#fcfcf5;padding:8px 15px;font-weight:650;position:relative;overflow:hidden}button:disabled{opacity:.55;cursor:default}button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #b05c22;outline-offset:3px}a{color:#20634e}button:hover:enabled{border-color:#47765b}.primary{background:#184a39;color:white;border-color:#184a39}header{background:#193e33;color:#fffcdf;padding:24px max(5vw,calc((100vw - 1250px)/2));display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:4px solid #c5a76a}h1,h2,h3,p{margin:0}h1{font:650 clamp(23px,3vw,37px)/1.45 Georgia,"Songti SC",serif;letter-spacing:.04em}header small,.eyebrow{font:600 12px/1.7 Georgia,serif;letter-spacing:.13em}header small{color:#d7dfc6}#progress{font-size:14px;white-space:nowrap}progress{display:block;width:100%;height:7px;margin-top:6px;accent-color:#a4bc86}main{max-width:1340px;margin:auto;padding:26px 4.5vw 20px}.top,.row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.top{margin-bottom:12px}h2{font:650 clamp(22px,2.1vw,30px)/1.4 Georgia,"Songti SC",serif}h3{font-size:17px}.grid{display:grid;grid-template-columns:minmax(0,1.85fr) minmax(265px,1fr);gap:18px;align-items:start}.mapFrame,.card,.paper{border:1px solid #ccd1bc;border-radius:18px;background:#fffef7;box-shadow:0 5px 18px #3d52320b}.mapFrame{overflow:hidden}.land{position:relative;aspect-ratio:760/560;isolation:isolate}.course{width:100%;height:100%;display:block}.pin{position:absolute;transform:translate(-50%,-50%);height:48px;min-width:48px;padding:0 7px;overflow:visible;border-radius:50%;font:700 21px/1 Georgia,serif;background:#f5f4dd;color:#344e40;border:2px solid #778c6a;box-shadow:0 3px 1px #284a3860,0 5px 12px #26453324}.pin.seen{color:#fff;background:#35684c;border-color:#f8f8d8}.pin.current{outline:3px solid #f9e78d;outline-offset:3px}.pin.done:before,.pin.due:after{position:absolute;display:grid;place-items:center;border:2px solid #fffeea;border-radius:100%;content:"✓";background:#205e49;color:white;width:20px;height:20px;right:-8px;bottom:-4px;font:700 13px sans-serif}.pin.due:after{content:"";width:10px;height:10px;background:#c76339;top:-3px;right:-2px}.tip{display:none;position:absolute;bottom:115%;left:50%;transform:translateX(-50%);white-space:nowrap;font:600 13px sans-serif;background:#1a4538;color:white;padding:7px;border-radius:7px;z-index:3}.pin:hover .tip,.pin:focus-visible .tip{display:block}.legend{padding:12px 15px;display:flex;gap:14px;flex-wrap:wrap;color:#53624f;font-size:12px}.card,.paper{padding:clamp(17px,2vw,28px)}.card{border-top:4px solid #b69b62}.eyebrow{color:#617357}.num{font:italic 42px/1 Georgia;color:#57754e}.anchor{margin:14px 0;background:#eaf0db;border-left:3px solid #839758;padding:11px 13px;font-weight:650}.muted,footer{font-size:14px;color:#526150}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}details{margin:12px 0;border-top:1px solid #d9ddcd;padding-top:9px}summary{cursor:pointer;min-height:44px;align-content:center;font-weight:650}.card p+p,.paper p+p{margin-top:8px}.note{margin:16px 0}.paper{max-width:760px;margin:0 auto}.paper .row{border-bottom:1px solid #d8dfce;padding-bottom:12px;margin-bottom:16px}#prompt{font-size:clamp(18px,2.4vw,23px);line-height:1.65;margin:13px 0 15px}.answers{display:grid;gap:8px}.answers button{text-align:left}.answers button[aria-pressed=true]{background:#dcead1;border-color:#3b7053}input,textarea{width:100%;padding:12px;border:1.5px solid #a4b49d;border-radius:8px;background:#fff}input[aria-invalid=true]{border:2px solid #ad432e}#err,.bad{color:#8e3829}#err{animation:rise .2s ease-out}.feedback{background:#eaf0df;padding:15px;border-radius:10px;margin:15px 0}.feedback.bad{background:#faeae1}.feedback a{display:inline-block;padding:6px 0}footer{max-width:1340px;margin:0 auto;padding:12px 4.5vw 32px;border-top:1px solid #d9ddcf}.reset{background:none;border:0;text-decoration:underline}.wave{position:absolute;pointer-events:none;width:260%;aspect-ratio:1;border-radius:50%;background:#b3cda380;animation:wave .55s ease-out forwards}@keyframes wave{from{transform:translate(-50%,-50%) scale(.01)}to{transform:translate(-50%,-50%) scale(1);opacity:0}}@keyframes rise{from{opacity:0;transform:translateY(8px)}}[hidden]{display:none!important}dialog{width:min(470px,92vw);max-height:85vh;overflow:auto;border:1px solid #9fab91;border-radius:16px;padding:23px;color:inherit;background:#fffef7}dialog::backdrop{background:#183e339e}@media(max-width:760px){header{padding:14px 4vw;gap:8px}header small{font-size:10px}#progress{font-size:12px}main{padding:15px 3vw}.grid{grid-template-columns:1fr;gap:12px}.land{aspect-ratio:1.38}.pin{width:44px;height:44px;min-width:44px;font-size:18px}.legend{gap:9px;padding:8px 12px}.card{padding:18px}.top{margin-bottom:8px}.top button{font-size:14px}footer{padding:12px 4vw}}@media(prefers-reduced-motion:reduce){*,*:before{animation:none!important;scroll-behavior:auto!important}.wave{display:none}}
+</style></head><body><header><div><h1>高尔夫规则记忆地图</h1><small>Golf Rules Memory Map</small></div><div id="progress"><span id="progressText"></span><progress id="bar" max="5" value="0" aria-label="已完成站点"></progress></div></header><main>
+<section id="home"><div class="top"><h2>球场探索</h2><button id="reviewOpen">我的错题集 · <span id="dueCount">0</span></button></div><div class="grid"><div class="mapFrame"><div class="land" id="land"><svg viewBox="0 0 760 560" preserveAspectRatio="none" class="course" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+<pattern id="rough" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#9ab079"/><path d="m2 8 2 -2m6 6 1 -2" stroke="#869e68" stroke-width="1"/></pattern>
+<pattern id="mow" width="52" height="52" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="52" height="52" fill="#b9cb83"/><rect width="26" height="52" fill="#adc67a"/></pattern>
+<pattern id="water" width="32" height="17" patternUnits="userSpaceOnUse"><rect width="32" height="17" fill="#76aaa5"/><path d="M4 9q4 -2 8 0t8 0" fill="none" stroke="#a7c8b8" stroke-width="1"/></pattern>
+<g id="tree"><ellipse cx="4" cy="5" rx="12" ry="8" fill="#435f44" opacity=".28"/><path d="M-10 4Q-15 -4 -8 -8Q-6 -15 2 -12Q12 -13 12 -4Q17 3 8 7Q2 14 -6 9Z" fill="currentColor"/><path d="M-9 -2Q-8 -9 -1 -9" stroke="#d0dd99" stroke-width="2" opacity=".45" fill="none"/></g>
+<g id="golfer"><ellipse cx="4" cy="5" rx="8" ry="3" fill="#314c38" opacity=".25"/><path d="m0 0 -3 6m3 -6 5 5" stroke="#374f48" stroke-width="3"/><ellipse rx="5" ry="4" fill="#f6e7c8"/><circle cx="-1" cy="-4" r="3" fill="#333f38"/><path d="m3 -1 6 4 3 8 3 -1" stroke="#42534b" fill="none" stroke-width="1.6"/></g></defs>
+<rect width="760" height="560" fill="url(#rough)"/>
+<path d="M-50 570Q145 460 85 361T30 190" fill="none" stroke="#d4d5a0" opacity=".30" stroke-width="1.3"/>
+<path d="M-26 570Q161 460 103 361T46 190" fill="none" stroke="#d4d5a0" opacity=".30" stroke-width="1.3"/>
+<path d="M-2 570Q177 460 121 361T62 190" fill="none" stroke="#d4d5a0" opacity=".30" stroke-width="1.3"/>
+<path d="M22 570Q193 460 139 361T78 190" fill="none" stroke="#d4d5a0" opacity=".30" stroke-width="1.3"/>
+<path d="M46 570Q209 460 157 361T94 190" fill="none" stroke="#d4d5a0" opacity=".30" stroke-width="1.3"/>
+<path d="M70 570Q225 460 175 361T110 190" fill="none" stroke="#d4d5a0" opacity=".30" stroke-width="1.3"/>
+<path d="M94 570Q241 460 193 361T126 190" fill="none" stroke="#d4d5a0" opacity=".30" stroke-width="1.3"/>
+<path d="M118 570Q257 460 211 361T142 190" fill="none" stroke="#d4d5a0" opacity=".30" stroke-width="1.3"/>
+<path d="M142 570Q273 460 229 361T158 190" fill="none" stroke="#d4d5a0" opacity=".30" stroke-width="1.3"/>
+<path d="M166 570Q289 460 247 361T174 190" fill="none" stroke="#d4d5a0" opacity=".30" stroke-width="1.3"/>
+<path d="M190 570Q305 460 265 361T190 190" fill="none" stroke="#d4d5a0" opacity=".30" stroke-width="1.3"/>
+<path d="M214 570Q321 460 283 361T206 190" fill="none" stroke="#d4d5a0" opacity=".30" stroke-width="1.3"/>
+<path d="M-30 435 Q90 330 170 401 T325 404 Q395 347 339 263 T413 131 Q485 92 568 131 T800 26" fill="none" stroke="#66875d" stroke-width="13" opacity=".32"/><path d="M-30 435 Q90 330 170 401 T325 404 Q395 347 339 263 T413 131 Q485 92 568 131 T800 26" fill="none" stroke="#d7cba2" stroke-width="7"/>
+<path d="M115 478C133 456 166 456 179 421S191 340 219 310S291 302 300 263S275 207 298 152S382 120 421 97S452 48 488 52S546 80 522 122S445 150 427 182S437 244 406 278S333 333 313 372S295 437 244 458S193 511 154 516S96 509 115 478Z" fill="url(#mow)" stroke="#90ae6b" stroke-width="12"/>
+<path d="M473 55c31 -18 69 0 63 24s-29 40 -55 34 -38 -36 -8 -58Z" fill="#9bc681" stroke="#779d65" stroke-width="4"/>
+<path d="M543 219c36 -34 79 -27 100 2s66 27 80 63 -15 49 -54 49 -49 -19 -77 -12 -89 2 -88 -27 20 -50 39 -75Z" fill="url(#water)" stroke="#d3d0a1" stroke-width="8"/>
+<path d="M14 180q21 -31 60 -19t58 47q-1 31 -45 20t-53 -4q-37 -3 -20 -44Z" fill="url(#water)" stroke="#c8c79a" stroke-width="5"/>
+<g fill="#e9d6a4" stroke="#aa9e6d" stroke-width="3"><path d="M411 75q7 -23 27 -27t17 10q-8 10 -11 21t-21 11q-21 1 -12 -15Z"/><path d="M319 328q15 -22 31 -18t4 19q-10 7 -14 19t-17 7q-13 -5 -4 -27Z"/></g>
+<path d="M22 34Q125 95 218 67T342 26" fill="none" stroke="#f9f4d5" stroke-dasharray="7 5" stroke-width="2"/>
+<path d="M492 86V48l22 6 -21 6" fill="#c8613e" stroke="#45584b" stroke-width="2"/><ellipse cx="492" cy="87" rx="5" ry="2" fill="#476d49"/>
+<g transform="translate(142 486) rotate(-22)"><rect x="-27" y="-15" width="54" height="31" rx="7" fill="#7ba86c" stroke="#68915e" stroke-width="3"/><circle cx="-17" cy="0" r="3" fill="#f5e9c9"/><circle cx="17" cy="0" r="3" fill="#f5e9c9"/></g>
+<use href="#tree" transform="translate(114.1 26.9) scale(0.97)" color="#64845b"/>
+<use href="#tree" transform="translate(10.3 28.5) scale(0.59)" color="#809b65"/>
+<use href="#tree" transform="translate(11.9 33.0) scale(0.97)" color="#567952"/>
+<use href="#tree" transform="translate(113.0 34.1) scale(0.99)" color="#67895e"/>
+<use href="#tree" transform="translate(109.1 35.2) scale(0.69)" color="#809b65"/>
+<use href="#tree" transform="translate(18.8 40.5) scale(0.54)" color="#809b65"/>
+<use href="#tree" transform="translate(58.2 43.9) scale(1.04)" color="#809b65"/>
+<use href="#tree" transform="translate(46.2 49.4) scale(0.84)" color="#567952"/>
+<use href="#tree" transform="translate(14.5 50.1) scale(0.71)" color="#809b65"/>
+<use href="#tree" transform="translate(51.5 53.6) scale(0.70)" color="#67895e"/>
+<use href="#tree" transform="translate(6.2 55.1) scale(1.11)" color="#67895e"/>
+<use href="#tree" transform="translate(101.6 55.2) scale(1.05)" color="#809b65"/>
+<use href="#tree" transform="translate(16.5 56.1) scale(0.85)" color="#779561"/>
+<use href="#tree" transform="translate(72.4 60.6) scale(0.67)" color="#567952"/>
+<use href="#tree" transform="translate(94.2 60.7) scale(0.59)" color="#567952"/>
+<use href="#tree" transform="translate(-5.8 62.8) scale(0.63)" color="#567952"/>
+<use href="#tree" transform="translate(83.1 63.2) scale(0.67)" color="#809b65"/>
+<use href="#tree" transform="translate(58.7 64.7) scale(0.87)" color="#809b65"/>
+<use href="#tree" transform="translate(94.4 65.2) scale(0.73)" color="#567952"/>
+<use href="#tree" transform="translate(104.9 67.6) scale(1.03)" color="#567952"/>
+<use href="#tree" transform="translate(14.5 70.2) scale(0.75)" color="#64845b"/>
+<use href="#tree" transform="translate(93.4 71.9) scale(0.87)" color="#64845b"/>
+<use href="#tree" transform="translate(10.0 72.1) scale(0.93)" color="#64845b"/>
+<use href="#tree" transform="translate(23.5 72.7) scale(0.74)" color="#64845b"/>
+<use href="#tree" transform="translate(41.2 73.6) scale(0.63)" color="#779561"/>
+<use href="#tree" transform="translate(4.6 73.8) scale(0.90)" color="#779561"/>
+<use href="#tree" transform="translate(75.7 80.5) scale(1.08)" color="#567952"/>
+<use href="#tree" transform="translate(34.0 85.4) scale(0.73)" color="#67895e"/>
+<use href="#tree" transform="translate(76.0 87.6) scale(1.06)" color="#67895e"/>
+<use href="#tree" transform="translate(7.6 97.5) scale(0.88)" color="#779561"/>
+<use href="#tree" transform="translate(187.6 45.3) scale(0.94)" color="#67895e"/>
+<use href="#tree" transform="translate(206.6 48.0) scale(0.74)" color="#64845b"/>
+<use href="#tree" transform="translate(185.0 50.6) scale(1.06)" color="#64845b"/>
+<use href="#tree" transform="translate(236.7 52.1) scale(0.73)" color="#567952"/>
+<use href="#tree" transform="translate(145.4 52.5) scale(0.96)" color="#779561"/>
+<use href="#tree" transform="translate(157.5 52.7) scale(0.94)" color="#67895e"/>
+<use href="#tree" transform="translate(258.8 54.1) scale(1.15)" color="#809b65"/>
+<use href="#tree" transform="translate(256.7 55.8) scale(1.16)" color="#567952"/>
+<use href="#tree" transform="translate(242.3 60.1) scale(1.05)" color="#809b65"/>
+<use href="#tree" transform="translate(158.9 61.0) scale(0.67)" color="#64845b"/>
+<use href="#tree" transform="translate(135.5 66.6) scale(0.87)" color="#779561"/>
+<use href="#tree" transform="translate(124.5 68.6) scale(1.01)" color="#567952"/>
+<use href="#tree" transform="translate(179.1 69.3) scale(0.86)" color="#64845b"/>
+<use href="#tree" transform="translate(214.0 76.8) scale(1.10)" color="#567952"/>
+<use href="#tree" transform="translate(233.7 76.9) scale(0.59)" color="#809b65"/>
+<use href="#tree" transform="translate(224.7 79.8) scale(0.71)" color="#64845b"/>
+<use href="#tree" transform="translate(231.2 89.6) scale(1.14)" color="#809b65"/>
+<use href="#tree" transform="translate(255.3 93.8) scale(0.57)" color="#779561"/>
+<use href="#tree" transform="translate(133.0 96.0) scale(0.97)" color="#567952"/>
+<use href="#tree" transform="translate(233.5 97.3) scale(0.96)" color="#67895e"/>
+<use href="#tree" transform="translate(224.1 98.2) scale(1.09)" color="#809b65"/>
+<use href="#tree" transform="translate(197.4 101.7) scale(0.70)" color="#809b65"/>
+<use href="#tree" transform="translate(208.8 102.1) scale(0.99)" color="#779561"/>
+<use href="#tree" transform="translate(228.8 105.7) scale(0.55)" color="#809b65"/>
+<use href="#tree" transform="translate(764.4 11.4) scale(1.14)" color="#567952"/>
+<use href="#tree" transform="translate(651.7 13.3) scale(0.89)" color="#64845b"/>
+<use href="#tree" transform="translate(705.3 27.9) scale(0.77)" color="#779561"/>
+<use href="#tree" transform="translate(694.4 39.9) scale(0.58)" color="#779561"/>
+<use href="#tree" transform="translate(720.9 47.3) scale(1.15)" color="#567952"/>
+<use href="#tree" transform="translate(760.8 50.7) scale(0.76)" color="#779561"/>
+<use href="#tree" transform="translate(772.5 56.6) scale(0.63)" color="#779561"/>
+<use href="#tree" transform="translate(728.9 59.8) scale(0.93)" color="#567952"/>
+<use href="#tree" transform="translate(650.8 60.5) scale(0.56)" color="#779561"/>
+<use href="#tree" transform="translate(658.3 62.0) scale(0.75)" color="#64845b"/>
+<use href="#tree" transform="translate(777.3 63.2) scale(0.80)" color="#779561"/>
+<use href="#tree" transform="translate(673.5 74.7) scale(0.94)" color="#809b65"/>
+<use href="#tree" transform="translate(656.3 76.1) scale(1.04)" color="#67895e"/>
+<use href="#tree" transform="translate(695.9 78.2) scale(1.04)" color="#567952"/>
+<use href="#tree" transform="translate(657.7 81.9) scale(1.14)" color="#64845b"/>
+<use href="#tree" transform="translate(690.8 85.9) scale(0.90)" color="#567952"/>
+<use href="#tree" transform="translate(657.7 90.7) scale(0.65)" color="#67895e"/>
+<use href="#tree" transform="translate(688.5 90.9) scale(1.02)" color="#809b65"/>
+<use href="#tree" transform="translate(708.0 101.8) scale(0.82)" color="#809b65"/>
+<use href="#tree" transform="translate(673.7 103.5) scale(0.86)" color="#67895e"/>
+<use href="#tree" transform="translate(676.9 107.2) scale(1.00)" color="#779561"/>
+<use href="#tree" transform="translate(738.7 114.3) scale(0.92)" color="#67895e"/>
+<use href="#tree" transform="translate(730.8 118.3) scale(0.97)" color="#567952"/>
+<use href="#tree" transform="translate(754.1 125.7) scale(0.71)" color="#567952"/>
+<use href="#tree" transform="translate(680.4 126.7) scale(0.64)" color="#67895e"/>
+<use href="#tree" transform="translate(686.5 130.2) scale(1.13)" color="#567952"/>
+<use href="#tree" transform="translate(744.6 132.9) scale(0.84)" color="#809b65"/>
+<use href="#tree" transform="translate(687.6 133.9) scale(0.66)" color="#779561"/>
+<use href="#tree" transform="translate(729.4 145.0) scale(0.63)" color="#567952"/>
+<use href="#tree" transform="translate(668.9 146.3) scale(0.67)" color="#779561"/>
+<use href="#tree" transform="translate(401.6 409.3) scale(0.60)" color="#67895e"/>
+<use href="#tree" transform="translate(328.8 414.2) scale(0.93)" color="#567952"/>
+<use href="#tree" transform="translate(347.8 428.2) scale(0.74)" color="#779561"/>
+<use href="#tree" transform="translate(413.4 430.8) scale(1.02)" color="#67895e"/>
+<use href="#tree" transform="translate(431.3 432.7) scale(1.14)" color="#809b65"/>
+<use href="#tree" transform="translate(422.8 433.8) scale(1.05)" color="#567952"/>
+<use href="#tree" transform="translate(390.1 436.7) scale(1.01)" color="#67895e"/>
+<use href="#tree" transform="translate(396.1 439.7) scale(1.04)" color="#779561"/>
+<use href="#tree" transform="translate(389.2 441.3) scale(0.58)" color="#64845b"/>
+<use href="#tree" transform="translate(447.6 443.0) scale(0.95)" color="#67895e"/>
+<use href="#tree" transform="translate(373.8 447.4) scale(0.59)" color="#779561"/>
+<use href="#tree" transform="translate(403.1 448.7) scale(1.13)" color="#67895e"/>
+<use href="#tree" transform="translate(436.2 453.8) scale(0.82)" color="#809b65"/>
+<use href="#tree" transform="translate(338.7 454.6) scale(1.14)" color="#779561"/>
+<use href="#tree" transform="translate(370.3 458.1) scale(0.91)" color="#64845b"/>
+<use href="#tree" transform="translate(330.9 462.2) scale(0.67)" color="#567952"/>
+<use href="#tree" transform="translate(341.4 463.9) scale(0.87)" color="#64845b"/>
+<use href="#tree" transform="translate(443.9 466.5) scale(0.75)" color="#64845b"/>
+<use href="#tree" transform="translate(333.7 468.0) scale(0.74)" color="#64845b"/>
+<use href="#tree" transform="translate(397.1 470.3) scale(1.04)" color="#567952"/>
+<use href="#tree" transform="translate(381.6 488.6) scale(1.09)" color="#567952"/>
+<use href="#tree" transform="translate(364.6 491.6) scale(0.55)" color="#809b65"/>
+<use href="#tree" transform="translate(353.9 500.5) scale(1.09)" color="#809b65"/>
+<use href="#tree" transform="translate(440.3 500.8) scale(0.64)" color="#64845b"/>
+<use href="#tree" transform="translate(438.0 510.3) scale(0.54)" color="#67895e"/>
+<use href="#tree" transform="translate(377.4 511.2) scale(0.88)" color="#64845b"/>
+<use href="#tree" transform="translate(338.8 511.6) scale(0.57)" color="#809b65"/>
+<use href="#tree" transform="translate(352.6 515.3) scale(0.79)" color="#779561"/>
+<use href="#tree" transform="translate(417.3 520.6) scale(0.92)" color="#779561"/>
+<use href="#tree" transform="translate(440.3 528.0) scale(1.01)" color="#779561"/>
+<use href="#tree" transform="translate(408.7 533.2) scale(0.88)" color="#809b65"/>
+<use href="#tree" transform="translate(341.0 533.6) scale(1.16)" color="#64845b"/>
+<use href="#tree" transform="translate(430.7 535.1) scale(1.05)" color="#809b65"/>
+<use href="#tree" transform="translate(395.1 537.3) scale(0.92)" color="#567952"/>
+<use href="#tree" transform="translate(406.9 547.9) scale(0.81)" color="#567952"/>
+<use href="#tree" transform="translate(365.6 555.0) scale(0.61)" color="#809b65"/>
+<use href="#tree" transform="translate(626.2 444.7) scale(0.65)" color="#809b65"/>
+<use href="#tree" transform="translate(766.5 445.5) scale(0.64)" color="#64845b"/>
+<use href="#tree" transform="translate(621.6 447.0) scale(0.75)" color="#779561"/>
+<use href="#tree" transform="translate(574.3 447.9) scale(0.97)" color="#64845b"/>
+<use href="#tree" transform="translate(595.1 448.5) scale(1.03)" color="#67895e"/>
+<use href="#tree" transform="translate(624.4 451.3) scale(1.07)" color="#67895e"/>
+<use href="#tree" transform="translate(772.4 451.9) scale(1.11)" color="#67895e"/>
+<use href="#tree" transform="translate(710.6 452.3) scale(1.11)" color="#67895e"/>
+<use href="#tree" transform="translate(733.0 457.1) scale(1.05)" color="#67895e"/>
+<use href="#tree" transform="translate(669.3 461.5) scale(0.77)" color="#809b65"/>
+<use href="#tree" transform="translate(609.8 464.3) scale(0.75)" color="#779561"/>
+<use href="#tree" transform="translate(744.3 467.2) scale(0.81)" color="#567952"/>
+<use href="#tree" transform="translate(687.4 468.4) scale(0.62)" color="#567952"/>
+<use href="#tree" transform="translate(681.3 469.0) scale(1.04)" color="#67895e"/>
+<use href="#tree" transform="translate(665.5 476.7) scale(1.05)" color="#67895e"/>
+<use href="#tree" transform="translate(581.2 478.3) scale(0.77)" color="#64845b"/>
+<use href="#tree" transform="translate(708.2 478.6) scale(0.86)" color="#567952"/>
+<use href="#tree" transform="translate(562.1 478.8) scale(0.56)" color="#67895e"/>
+<use href="#tree" transform="translate(666.1 479.8) scale(0.85)" color="#809b65"/>
+<use href="#tree" transform="translate(714.6 488.8) scale(0.92)" color="#567952"/>
+<use href="#tree" transform="translate(699.8 490.7) scale(0.73)" color="#779561"/>
+<use href="#tree" transform="translate(682.6 493.4) scale(0.90)" color="#567952"/>
+<use href="#tree" transform="translate(616.7 495.5) scale(1.02)" color="#64845b"/>
+<use href="#tree" transform="translate(763.5 496.0) scale(0.95)" color="#809b65"/>
+<use href="#tree" transform="translate(663.6 499.3) scale(1.13)" color="#64845b"/>
+<use href="#tree" transform="translate(753.1 500.4) scale(1.11)" color="#567952"/>
+<use href="#tree" transform="translate(734.4 500.6) scale(0.93)" color="#809b65"/>
+<use href="#tree" transform="translate(741.7 500.7) scale(0.93)" color="#567952"/>
+<use href="#tree" transform="translate(696.6 512.6) scale(0.70)" color="#779561"/>
+<use href="#tree" transform="translate(684.9 513.3) scale(1.13)" color="#64845b"/>
+<use href="#tree" transform="translate(708.3 515.9) scale(0.86)" color="#64845b"/>
+<use href="#tree" transform="translate(652.9 517.5) scale(0.75)" color="#809b65"/>
+<use href="#tree" transform="translate(768.4 518.4) scale(0.55)" color="#779561"/>
+<use href="#tree" transform="translate(781.3 521.1) scale(0.91)" color="#67895e"/>
+<use href="#tree" transform="translate(600.3 524.5) scale(1.01)" color="#64845b"/>
+<use href="#tree" transform="translate(744.5 525.3) scale(0.93)" color="#809b65"/>
+<use href="#tree" transform="translate(684.4 525.4) scale(0.99)" color="#809b65"/>
+<use href="#tree" transform="translate(679.3 528.1) scale(1.01)" color="#809b65"/>
+<use href="#tree" transform="translate(778.2 528.5) scale(0.95)" color="#779561"/>
+<use href="#tree" transform="translate(600.2 529.9) scale(1.07)" color="#64845b"/>
+<use href="#tree" transform="translate(660.1 530.9) scale(0.85)" color="#567952"/>
+<use href="#tree" transform="translate(629.3 533.5) scale(0.57)" color="#567952"/>
+<use href="#tree" transform="translate(611.3 537.0) scale(1.10)" color="#809b65"/>
+<use href="#tree" transform="translate(3.5 261.5) scale(0.58)" color="#67895e"/>
+<use href="#tree" transform="translate(37.4 263.4) scale(1.06)" color="#67895e"/>
+<use href="#tree" transform="translate(-0.6 266.0) scale(0.72)" color="#809b65"/>
+<use href="#tree" transform="translate(6.0 277.4) scale(0.87)" color="#779561"/>
+<use href="#tree" transform="translate(-20.7 278.3) scale(1.11)" color="#67895e"/>
+<use href="#tree" transform="translate(39.3 292.2) scale(0.98)" color="#779561"/>
+<use href="#tree" transform="translate(44.8 305.4) scale(0.92)" color="#64845b"/>
+<use href="#tree" transform="translate(-16.4 311.4) scale(0.94)" color="#779561"/>
+<use href="#tree" transform="translate(20.5 313.8) scale(1.06)" color="#809b65"/>
+<use href="#tree" transform="translate(20.3 316.6) scale(0.92)" color="#779561"/>
+<use href="#tree" transform="translate(3.1 317.7) scale(0.86)" color="#779561"/>
+<use href="#tree" transform="translate(56.9 318.6) scale(0.62)" color="#67895e"/>
+<use href="#tree" transform="translate(2.3 325.6) scale(0.84)" color="#779561"/>
+<use href="#tree" transform="translate(-8.7 326.9) scale(0.57)" color="#64845b"/>
+<use href="#tree" transform="translate(-8.2 339.6) scale(0.55)" color="#64845b"/>
+<use href="#tree" transform="translate(60.8 342.6) scale(0.75)" color="#67895e"/>
+<use href="#tree" transform="translate(18.3 344.0) scale(0.66)" color="#64845b"/>
+<use href="#tree" transform="translate(16.5 351.6) scale(0.61)" color="#67895e"/>
+<use href="#tree" transform="translate(39.5 356.3) scale(1.11)" color="#567952"/>
+<use href="#tree" transform="translate(9.1 372.7) scale(0.58)" color="#567952"/>
+<use href="#tree" transform="translate(-18.5 375.2) scale(1.05)" color="#67895e"/>
+<use href="#tree" transform="translate(-14.9 381.8) scale(1.02)" color="#779561"/>
+<use href="#tree" transform="translate(59.7 382.1) scale(1.16)" color="#567952"/>
+<use href="#tree" transform="translate(22.0 390.1) scale(1.14)" color="#64845b"/>
+<use href="#tree" transform="translate(-20.4 390.3) scale(1.12)" color="#779561"/>
+<use href="#tree" transform="translate(265.2 145.3) scale(0.76)" color="#809b65"/>
+<use href="#tree" transform="translate(253.6 152.2) scale(1.09)" color="#779561"/>
+<use href="#tree" transform="translate(248.8 160.1) scale(0.81)" color="#809b65"/>
+<use href="#tree" transform="translate(208.7 162.4) scale(0.97)" color="#779561"/>
+<use href="#tree" transform="translate(257.6 173.6) scale(1.10)" color="#779561"/>
+<use href="#tree" transform="translate(209.1 183.7) scale(0.83)" color="#64845b"/>
+<use href="#tree" transform="translate(224.4 188.5) scale(0.70)" color="#64845b"/>
+<use href="#tree" transform="translate(234.7 191.8) scale(0.94)" color="#779561"/>
+<use href="#tree" transform="translate(237.8 193.8) scale(1.03)" color="#779561"/>
+<use href="#tree" transform="translate(218.9 196.2) scale(0.55)" color="#64845b"/>
+<use href="#tree" transform="translate(246.1 205.7) scale(0.55)" color="#809b65"/>
+<use href="#tree" transform="translate(249.0 207.0) scale(0.56)" color="#567952"/>
+<use href="#tree" transform="translate(248.6 227.0) scale(0.96)" color="#809b65"/>
+<use href="#tree" transform="translate(248.9 229.0) scale(0.63)" color="#779561"/>
+<path d="M520 265l2 -10" stroke="#59694d" stroke-width="4"/><path d="M521 263l1 -8" stroke="#bd4331" stroke-width="3"/>
+<path d="M535 235l2 -10" stroke="#59694d" stroke-width="4"/><path d="M536 233l1 -8" stroke="#bd4331" stroke-width="3"/>
+<path d="M555 217l2 -10" stroke="#59694d" stroke-width="4"/><path d="M556 215l1 -8" stroke="#bd4331" stroke-width="3"/>
+<path d="M580 209l2 -10" stroke="#59694d" stroke-width="4"/><path d="M581 207l1 -8" stroke="#bd4331" stroke-width="3"/>
+<path d="M603 209l2 -10" stroke="#59694d" stroke-width="4"/><path d="M604 207l1 -8" stroke="#bd4331" stroke-width="3"/>
+<path d="M32 170l2 -10" stroke="#59694d" stroke-width="4"/><path d="M33 168l1 -8" stroke="#e2bc44" stroke-width="3"/>
+<path d="M57 163l2 -10" stroke="#59694d" stroke-width="4"/><path d="M58 161l1 -8" stroke="#e2bc44" stroke-width="3"/>
+<path d="M89 177l2 -10" stroke="#59694d" stroke-width="4"/><path d="M90 175l1 -8" stroke="#e2bc44" stroke-width="3"/>
+<path d="M112 186l2 -10" stroke="#59694d" stroke-width="4"/><path d="M113 184l1 -8" stroke="#e2bc44" stroke-width="3"/>
+<path d="M76 57l2 -10" stroke="#59694d" stroke-width="4"/><path d="M77 55l1 -8" stroke="#f6f3e4" stroke-width="3"/>
+<path d="M108 69l2 -10" stroke="#59694d" stroke-width="4"/><path d="M109 67l1 -8" stroke="#f6f3e4" stroke-width="3"/>
+<path d="M144 73l2 -10" stroke="#59694d" stroke-width="4"/><path d="M145 71l1 -8" stroke="#f6f3e4" stroke-width="3"/>
+<path d="M184 72l2 -10" stroke="#59694d" stroke-width="4"/><path d="M185 70l1 -8" stroke="#f6f3e4" stroke-width="3"/>
+<path d="M223 64l2 -10" stroke="#59694d" stroke-width="4"/><path d="M224 62l1 -8" stroke="#f6f3e4" stroke-width="3"/>
+<use href="#golfer" x="214" y="411"/>
+<use href="#golfer" x="415" y="231"/>
+<use href="#golfer" x="198" y="89"/>
+<use href="#golfer" x="216" y="97"/>
+<path d="M225 417q16 5 26 -3" stroke="#f9f4db" stroke-dasharray="3 3" fill="none"/><g fill="#fffbea" stroke="#809877"><circle cx="252" cy="414" r="3.6"/><circle cx="430" cy="244" r="3.6"/><circle cx="500" cy="96" r="3"/></g><ellipse cx="423" cy="248" rx="3" ry="1.6" fill="#cf9b43"/><g transform="translate(46 464)" fill="#405943"><path d="M0 -17l5 18 -5 -4 -5 4Z"/><text y="-22" text-anchor="middle" font-family="Georgia" font-size="13">N</text></g></svg>
+</div><div class="legend"><span>○ 未探索</span><span>● 已探索</span><span>✓ 已完成练习</span><span>🟠 待复习</span></div></div><aside class="card" id="station" tabindex="-1"></aside></div><p class="muted note">站点位置帮助联想章节。实际判罚取决于赛制、球的位置、移动原因和具体条款。</p></section>
+<section class="paper" id="quiz" hidden><div class="row"><strong id="mode"></strong><button class="back">返回地图</button></div><span id="count" class="eyebrow"></span><h2 id="prompt" tabindex="-1"></h2><div id="controls"></div><p id="err" role="status"></p><div class="actions"><button class="primary" id="submit">确认答案</button></div><div id="feedback" aria-live="polite"></div><button id="next" hidden>下一题 →</button></section>
+<section class="paper" id="review" hidden><div class="row"><h2>我的错题集</h2><button class="back">返回地图</button></div><div id="records"></div></section>
+<dialog id="confirm"><h2>清除本地图的学习记录？</h2><p>将删除本版本在当前浏览器保存的探索进度、完成标记和错题。此操作无法撤销。</p><div class="actions"><button id="cancel" autofocus>保留记录</button><button id="erase">确认清除</button></div></dialog></main>
+<footer><div class="row"><span id="storeNote">学习记录保存在当前浏览器。</span><button class="reset" id="clear">清除学习记录</button></div></footer>
+<script>
+// 章节数据和题库独立于界面。坐标以地图宽高的百分比表示。
+const chapters=[
+ {id:9,name:'静止球移动',anchor:'球动了，想起 9。',x:34,y:72,story:'球道上，球离开了压痕。裁判先停下来问：是谁，或者是什么，让它动了？'},
+ {id:13,name:'果岭',anchor:'走上果岭，想起 13。',x:65,y:17,story:'走近旗杆，鞋尖轻轻擦过球。把这一幕记在果岭上，再判断它该回到哪里。'},
+ {id:14,name:'规则操作程序',anchor:'拿起、放回、抛球，想起 14。',x:53,y:42,story:'裁判站在补救区旁，看两件事：球是怎么抛的，最后又停在哪里？'},
+ {id:17,name:'罚杆区',anchor:'进入罚杆区，想起 17。',x:78,y:49,story:'池边一排红桩。先找球最后越过边界的点，再决定可以在哪里补救。'},
+ {id:18,name:'遗失球与界外球',anchor:'球丢了或界外，想起 18。',x:24,y:18,story:'白桩旁，大家分头进树林找球。回想开球时，球员有没有先声明打暂定球？'}
+];
+const official=n=>'https://www.randa.org/rog/the-rules-of-golf/rule-'+n;
+function item(id,chapter,rule,scenario,alternatives,explanation,accepted=[]){
+ return {id,chapter,rule,scenario,options:[rule,...alternatives],explanation,accepted:[rule,...accepted],memoryHint:chapters.find(c=>c.id===chapter).anchor,sourceUrl:official(chapter),verificationStatus:'已对照 R&A 英文规则；中文题解为学习摘要'};
+}
+const questions=[
+ item('09-kick',9,'9.4','普通比杆赛。球道上的球已静止。球员走向球时意外踢动它，原位清楚，既非寻球也无其他免罚例外。哪条规则同时处理放回与罚杆？',['9.3','9.6'],'球员自己造成球移动，依 9.4a 放回原位，依 9.4b 罚一杆。风和观众分别属于不同成因。'),
+ item('09-wind',9,'9.3','球员上一杆打出的球已在球道停稳，尚未上杆，一阵风把球吹到另一处球道。球此前没有被抛、放或放回。按哪条规则继续？',['9.4','9.6'],'风是自然力，本题没有适用的例外。不罚杆，从风吹至的新位置打。'),
+ item('09-fan',9,'9.6','观众捡起球道上静止的使用中球。裁判目睹全过程，原位清楚且球位状态未变。应查哪条规则？',['9.4','9.5'],'观众是外来影响。球员不受罚，应把原球放回观众拿球前的位置。'),
+ item('13-shoe',13,'13.1d(1)','本洞果岭上，球员走过球旁时意外用鞋碰动静止的球，原位清楚，尚未上杆。哪条规定免罚并放回？',['9.4b','13.1d(2)'],'在果岭上意外导致球移动，按果岭专门规则免罚，将球放回原位。这里的原因是人意外碰动。',['13.1d']),
+ item('13-wind',13,'13.1d(2)','本洞果岭上，球已被标记、拿起并放回。球员尚未上杆，风将球吹离放回点。哪条规定决定下一杆的位置？',['13.1d(1)','9.6'],'果岭球此前已放回，后来被自然力移动，必须放回刚才的位置，不罚杆。若此前未被拿起并放回，通常从新位置打。',['13.1d']),
+ item('14-high',14,'14.3b(4)','合法补救区已确定。不适用规则25调整。球员从肩高抛球，球停在区内，尚未击打。要求纠正这个动作的具体条款是什么？',['14.3c(2)','14.2e'],'错在抛球方式。须由本人从膝高重新正确抛球，击球前纠正不另罚。此次不计入两次正确抛球的次数。',['14.3b']),
+ item('14-roll',14,'14.3c(2)','在普通区取侧面补救。球员两次均以正确方式抛球，球都先落在补救区内再滚出，无人干预。接下来依哪条程序？',['14.3b(4)','14.2c'],'两次正确抛球均停在区外，应将球放在第二次抛球首先触地的点。此题先判断抛球方式正确，再判断停球处。',['14.3c']),
+ item('17-side',17,'17.1d(3)','球在红色罚杆区，最后越界点P已确定。球员选择以P为基准的侧面补救，不适用特殊调整或当地规则。哪条规定该选项？',['17.1d(2)','19.2c'],'加一杆，以P为基准，在两支球杆长度内、不更近洞且在同一罚杆区外的合法补救区抛球，球须停在区内。'),
+ item('17-line',17,'17.1d(2)','球在黄色罚杆区。球员选择区外后方线上补救，让最后越界点保持在洞与抛球点之间。哪一项规定这种选择？',['17.1d(1)','17.1d(3)'],'加一杆，在同一罚杆区外沿线向后抛球，首先触地处确定一支球杆长度的补救区。不能比越界点更近洞，还须符合球场区域限制。'),
+ item('18-lost',18,'18.2a(1)','原球可能在普通区长草中。球员与球童同时开始寻找，连续三分钟仍未找到球，也无须识别的候选球。哪条定义这颗球何时成为遗失球？',['18.2b','18.3a'],'三分钟从球员或其球童开始寻找时起算。此处问遗失的认定，确认后怎样补救是下一步。',['18.2a']),
+ item('18-ob',18,'18.2b','开球完全越过球场边界并确认界外。没有暂定球，也未采用界外替代补救当地规则。哪条要求球员回到发球区重打并加罚？',['18.2a','17.1d(1)'],'已确认出界，按杆数与距离补救加一杆。原开球计一杆，回发球区打的是第三杆。'),
+ item('18-prov',18,'18.3b','球可能遗失在罚杆区外。打第二颗球之前，同组球员就在旁边。球员想让第二颗球取得暂定球身份。哪条规定应怎样声明？',['18.3a','18.3c'],'击球前向他人用“暂定球”或其他能明确表达该意思的话声明。仅说“我再打一颗”不足以表明暂定球身份。')
+];
+
+// 每站的反向回忆题也有独立 ID，以便错题集记录回忆方向。
+const reverseScenes={
+ 9:'在普通区行走时踢动自己的静止球，不涉及免罚例外。',
+ 13:'在本洞果岭上，球员意外用鞋碰动自己的静止球。',
+ 14:'补救时从肩高抛球，尚未击打便发现抛球方式错误。',
+ 17:'球进入红色罚杆区，球员选择在最后越界点侧面补救。',
+ 18:'在普通区长草连续找球三分钟仍未发现球，要判定是否遗失。'
+};
+const reverse=chapters.map(c=>{
+ const own=questions.find(q=>q.chapter===c.id);
+ const other=chapters.filter(x=>x.id!==c.id).slice(0,2).map(x=>reverseScenes[x.id]);
+ return {...own,id:'reverse-'+c.id,reverse:true,scenario:'看到 '+own.rule+'，下面哪一幕最直接对应这条规则？',answer:reverseScenes[c.id],options:[reverseScenes[c.id],...other]};
+});
+const challengeCases=[
+ {id:'case-water',chapter:17,rule:'17.1d(3) + 14.3b(4)',groups:[['17.1d(3)'],['14.3b','14.3b(4)']],scenario:'普通比杆赛。第二杆进入红色罚杆区，最后越界点明确。球员选择侧面补救，在正确范围内从肩高抛球，球停在区内，尚未击打。本题不适用规则25调整。分别写出侧面补救及错误抛球纠正的依据，并判断下一杆是第几杆。',explanation:'红区侧面补救加一杆，以最后越界点为基准确定合法补救区。肩高抛球须由本人从膝高重新正确抛球，错误抛球不计入两次正确抛球。击球前纠正不另罚。已打两杆，加罚一杆，下一杆是第四杆。',extra:14},
+ {id:'case-move',chapter:9,rule:'9.3 + 9.6',groups:[['9.3'],['9.6']],scenario:'比杆赛中，上一杆打出的球在球道A点停稳，此前未被抛、放或放回。上杆前，风把球吹到球道B点，随后观众从B点捡起球。裁判看清全过程，球位状态未变。分别写出两次移动的依据，并判断在哪里、用什么方式继续。',explanation:'风属于自然力，第一次移动后应从B点继续，不罚杆。观众属于外来影响，第二次移动后应把原球放回B点，仍不罚杆。B是观众捡球前的位置。'}
+].map(q=>({...q,memoryHint:chapters.find(c=>c.id===q.chapter).anchor,sourceUrl:official(q.chapter),verificationStatus:'已对照 R&A 英文规则；中文题解为学习摘要'}));
+const catalog=new Map([...questions,...reverse,...challengeCases].map(q=>[q.id,q]));
+const key='golf-memory-map-v1';
+const empty=()=>({visited:[],completed:[],mistakes:{}});
+const $=id=>document.getElementById(id);
+let state=empty(),station=null,round=null;
+function readState(){
+ try{
+  const raw=JSON.parse(localStorage.getItem(key)||'null');
+  if(!raw)return empty();
+  const ids=chapters.map(c=>c.id);
+  return {visited:ids.filter(i=>raw.visited?.includes(i)),completed:ids.filter(i=>raw.completed?.includes(i)),mistakes:Object.fromEntries(Object.entries(raw.mistakes||{}).filter(([id,r])=>catalog.has(id)&&r&&typeof r==='object'))};
+ }catch{ $('storeNote').textContent='当前无法读取学习记录，本次仍可练习。';return empty();}
+}
+state=readState();
+function persist(){try{localStorage.setItem(key,JSON.stringify(state))}catch{$('storeNote').textContent='浏览器未能保存记录，本次会话仍可使用。'}}
+function node(tag,text,cls){const n=document.createElement(tag);n.textContent=text;if(cls)n.className=cls;return n}
+function button(text,fn,cls){const b=node('button',text,cls);b.onclick=fn;return b}
+function source(n){const a=node('a','R&A 官方规则 '+n+' ↗');a.href=official(n);a.target='_blank';a.rel='noopener';return a}
+function shuffled(items){const a=items.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function switchPage(id){for(const page of ['home','quiz','review'])$(page).hidden=id!==page;window.scrollTo(0,0)}
+function sync(){
+ const due=Object.entries(state.mistakes).filter(([,r])=>!r.mastered);
+ $('progressText').textContent='完成 '+state.completed.length+' / '+chapters.length+' 站';$('bar').max=chapters.length;$('bar').value=state.completed.length;$('dueCount').textContent=due.length;
+ for(const c of chapters){
+  const p=$('pin'+c.id),seen=state.visited.includes(c.id),done=state.completed.includes(c.id),todo=due.some(([id])=>catalog.get(id).chapter===c.id);
+  p.className='pin'+(seen?' seen':'')+(done?' done':'')+(todo?' due':'')+(station===c?' current':'');
+  p.setAttribute('aria-pressed',String(station===c));p.setAttribute('aria-label','规则'+c.id+' '+c.name+'，'+(seen?'已探索':'未探索')+(done?'，已完成练习':'')+(todo?'，有题待复习':''));
+ }
+}
+function drawStation(){
+ const box=$('station');box.replaceChildren();
+ if(!station){box.append(node('small','COURSE GUIDE','eyebrow'),node('h2','从球场选一站'),node('p','点地图上的规则编号，进入对应的球场情境。','anchor'));for(const c of chapters)box.append(node('p',String(c.id).padStart(2,'0')+'　'+c.name,'muted'));return}
+ const c=station,bank=questions.filter(q=>q.chapter===c.id);
+ box.append(node('span',String(c.id).padStart(2,'0'),'num'),node('h2',c.name),node('p',c.anchor,'anchor'),node('p',c.story));
+ const d=node('details','');d.append(node('summary','查看完整依据与适用条件'));
+ for(const q of bank)d.append(node('h3',q.rule),node('p',q.scenario),node('p',q.explanation,'muted'));
+ d.append(source(c.id));box.append(node('p','相关条款　'+bank.map(q=>q.rule).join(' · '),'muted'),d);
+ const row=node('div','','actions');row.append(button('入门 · 三选一',()=>start('basic',bank),'primary'),button('挑战 · 填编号',()=>start('challenge',bank)),button('反向回忆',()=>start('reverse',reverse.filter(q=>q.chapter===c.id))));
+ const cases=challengeCases.filter(q=>q.chapter===c.id);if(cases.length)row.append(button('超高级案例',()=>start('case',cases)));
+ box.append(row,button('收起详情',()=>{const old=station;station=null;drawStation();sync();$('pin'+old.id).focus()} ,'reset'));
+}
+for(const c of chapters){
+ const p=button(String(c.id).padStart(2,'0'),()=>{station=c;if(!state.visited.includes(c.id)){state.visited.push(c.id);persist()}drawStation();sync();$('station').focus({preventScroll:true});if(matchMedia('(max-width:760px)').matches)$('station').scrollIntoView({block:'start'})},'pin');
+ p.id='pin'+c.id;p.style.left=c.x+'%';p.style.top=c.y+'%';p.append(node('span',c.name,'tip'));$('land').append(p);
+}
+const modeNames={basic:'入门 · 三选一',challenge:'挑战 · 独立回忆',reverse:'编号 → 情境',case:'超高级案例',review:'错题复习'};
+function home(){round=null;switchPage('home');drawStation();sync();if(station)$('pin'+station.id).focus({preventScroll:true})}
+document.querySelectorAll('.back').forEach(b=>b.onclick=home);
+function start(mode,list){round={mode,list:shuffled(list),index:0,score:0,phase:'answer',selected:'',wrong:false};switchPage('quiz');renderQuestion()}
+function renderQuestion(){
+ const r=round,q=r.list[r.index];r.phase='answer';r.selected='';r.wrong=false;$('mode').textContent=modeNames[r.mode];$('count').textContent=(r.index+1)+' / '+r.list.length;$('prompt').textContent=q.scenario;$('prompt').focus();$('feedback').replaceChildren();$('feedback').className='';$('err').textContent='';$('controls').replaceChildren();$('next').hidden=true;$('submit').hidden=false;$('submit').disabled=false;
+ if(r.mode==='basic'||q.reverse){
+  const choices=node('div','','answers');for(const opt of shuffled(q.options)){const b=button(opt,()=>{if(r.phase!=='answer')return;r.selected=opt;for(const sibling of choices.children)sibling.setAttribute('aria-pressed',String(sibling===b));$('err').textContent=''});b.setAttribute('aria-pressed','false');choices.append(b)}$('controls').append(choices);
+ }else{
+  const label=node('label',q.groups?'规则编号（多条用 + 分隔）':'填写具体规则编号');label.htmlFor='ruleInput';const input=node('input','');input.id='ruleInput';input.autocomplete='off';input.spellcheck=false;input.placeholder='输入规则编号';input.setAttribute('aria-describedby','err');input.onkeydown=e=>{if(e.key==='Enter'&&!e.isComposing)submit()};input.oninput=()=>{if(matches(q,input.value)){input.removeAttribute('aria-invalid');$('err').textContent=''}};$('controls').append(label,input);
+  if(q.groups){const label=node('label','你的判罚和处理（可在心中作答）');label.htmlFor='analysis';const memo=node('textarea','');memo.id='analysis';memo.rows=2;$('controls').append(label,memo)}
+ }
+}
+const norm=v=>v.normalize('NFKC').toLowerCase().replace(/规则|rule|\s/g,'').replace(/[·•]/g,'.');
+function matches(q,v){if(q.reverse)return v===q.answer;if(q.groups){const parts=[...new Set(norm(v).split(/[+,;、]+/).filter(Boolean))];return parts.length===q.groups.length&&q.groups.every(group=>group.some(a=>parts.includes(norm(a))))}return q.accepted.some(a=>norm(a)===norm(v))}
+function record(q,answer,reason){
+ const old=state.mistakes[q.id];if(round.wrong){if(reason==='处理分析有遗漏'&&old){old.reason='编号有误，处理分析也有遗漏';persist()}return}
+ state.mistakes[q.id]={answer,reason,count:(old?.count||0)+1,mastered:false};round.wrong=true;persist();sync()
+}
+function explain(box,q){box.append(node('h3','规则 '+q.rule),node('p',q.explanation),node('p',q.memoryHint,'muted'),source(q.chapter));if(q.extra)box.append(node('span','　'),source(q.extra))}
+function submit(){
+ const r=round;if(!r||r.phase!=='answer')return;const q=r.list[r.index],input=$('ruleInput'),answer=input?input.value.trim():r.selected;
+ if(!answer){$('err').textContent=input?'请先填写规则编号。':'请先选择一个答案。';input?.focus();return}
+ const correct=matches(q,answer);if(!correct){record(q,answer+(q.groups&&$('analysis').value?'；'+$('analysis').value:''),'作答有误');if(q.groups){input.setAttribute('aria-invalid','true');$('err').textContent='编号尚未全部匹配，已收录错题。修改后再确认。';return}}
+ r.phase='feedback';$('submit').hidden=true;$('err').textContent='';$('controls').querySelectorAll('input,button,textarea').forEach(x=>x.disabled=true);
+ const fb=$('feedback');fb.className='feedback'+(correct?'':' bad');fb.append(node('strong',correct?'答对了':'已收录到错题集'));explain(fb,q);
+ if(!correct&&input){input.disabled=false;input.setAttribute('aria-invalid','true');$('err').textContent='可以对照解析修改编号。首次答案已记入错题集。';}
+ if(q.groups){const d=$('caseDialog');d.replaceChildren(node('h2','核对你的处理'),node('p',$('analysis').value||'请对照自己刚才在心中作出的判断。'));explain(d,q);const actions=node('div','','actions');for(const [caption,ok] of [['分析一致',true],['分析有遗漏',false]])actions.append(button(caption,()=>{if(!ok)record(q,answer+'；'+($('analysis').value||'心中作答'),'处理分析有遗漏');d.close();$('reopenCase')?.remove();finish(ok)},ok?'primary':''));d.append(actions);d.showModal();return}
+ finish(correct)
+}
+function finish(correct){const r=round,q=r.list[r.index];if(correct&&!r.wrong){r.score++;if(state.mistakes[q.id]){state.mistakes[q.id].mastered=true;persist()}}r.phase='done';if(r.index===r.list.length-1&&['basic','challenge'].includes(r.mode)&&!state.completed.includes(q.chapter)){state.completed.push(q.chapter);persist()}sync();$('next').hidden=false;$('next').textContent=r.index===r.list.length-1?'查看结果':'下一题 →'}
+$('next').onclick=()=>{const r=round;if(!r||r.phase!=='done')return;if(++r.index<r.list.length)return renderQuestion();r.phase='result';$('count').textContent='练习完成';$('prompt').textContent='首次答对 '+r.score+' / '+r.list.length+' 题';$('controls').replaceChildren();$('feedback').className='';$('feedback').replaceChildren(button('查看我的错题集',showReview));$('next').hidden=true};
+function showReview(){
+ switchPage('review');const box=$('records');box.replaceChildren();const entries=Object.entries(state.mistakes).sort((a,b)=>Number(a[1].mastered)-Number(b[1].mastered));const due=entries.filter(([,v])=>!v.mastered).map(([id])=>catalog.get(id));box.append(node('p','今天有 '+due.length+' 道题需要复习。'));
+ if(due.length)box.append(button('开始复习',()=>start('review',due),'primary'));if(!entries.length)box.append(node('p','提交错误答案后，这里会自动保存原题、你的答案与规则依据。','muted'));
+ for(const [id,record] of entries){const q=catalog.get(id),d=node('details','');d.append(node('summary',(record.mastered?'✓ 已掌握':'● 待复习')+' · '+q.scenario),node('p','原答案　'+record.answer),node('p',record.reason+' · 累计 '+record.count+' 次','muted'));explain(d,q);d.append(button('重练这道题',()=>start('review',[q])));box.append(d)}
+}
+$('submit').onclick=submit;$('reviewOpen').onclick=showReview;
+const cd=node('dialog','');cd.id='caseDialog';cd.setAttribute('aria-label','案例解析与自评');cd.oncancel=e=>{e.preventDefault();cd.close();if(!$('reopenCase')){const reopen=button('继续核对分析',()=>cd.showModal());reopen.id='reopenCase';$('feedback').append(reopen)}};document.body.append(cd);
+$('clear').onclick=()=>$('confirm').showModal();$('cancel').onclick=()=>$('confirm').close();$('erase').onclick=()=>{state=empty();station=null;persist();$('confirm').close();home()};
+let wave;document.addEventListener('pointerdown',e=>{const b=e.target.closest('button');if(!b||b.disabled||b.classList.contains('pin')||matchMedia('(prefers-reduced-motion:reduce)').matches)return;wave?.remove();const w=node('span','','wave');wave=w;const rect=b.getBoundingClientRect();w.style.left=e.clientX-rect.left+'px';w.style.top=e.clientY-rect.top+'px';w.setAttribute('aria-hidden','true');b.append(w);setTimeout(()=>w.remove(),560)});document.addEventListener('pointermove',e=>{if(!wave?.isConnected||!e.buttons)return;const rect=wave.parentElement.getBoundingClientRect();wave.style.left=e.clientX-rect.left+'px';wave.style.top=e.clientY-rect.top+'px'});
+drawStation();sync();
+
+</script></body></html>
